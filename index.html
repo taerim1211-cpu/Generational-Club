@@ -197,6 +197,35 @@
     text-align: center;
   }
 
+  .members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .member-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 18px;
+    text-align: center;
+  }
+  .member-card .avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    border: 2px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: var(--text-soft);
+    margin: 0 auto 14px;
+  }
+  .member-card .name { font-weight: 600; color: var(--primary-dark); font-size: 18px; }
+  .member-card .role { color: var(--accent); font-size: 15px; font-weight: 600; margin: 2px 0 8px; }
+  .member-card .bio { color: var(--text-soft); font-size: 15px; margin: 0; }
+
   .partner-box {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -299,12 +328,12 @@
 
   @media (max-width: 760px) {
     .pillars, .quotes, .foot-grid { grid-template-columns: 1fr; }
-    .steps, .gallery { grid-template-columns: 1fr 1fr; }
+    .steps, .gallery, .members { grid-template-columns: 1fr 1fr; }
     nav.links { display: none; }
     table.programs th { width: auto; }
   }
   @media (max-width: 480px) {
-    .steps, .gallery { grid-template-columns: 1fr; }
+    .steps, .gallery, .members { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -321,6 +350,7 @@
         <li><a href="#mission">Mission</a></li>
         <li><a href="#programs">Programs</a></li>
         <li><a href="#photos">Photos</a></li>
+        <li><a href="#members">Members</a></li>
         <li><a href="#partnership">Partnership</a></li>
         <li><a href="#involved">Get Involved</a></li>
       </ul>
@@ -430,6 +460,41 @@
           <div class="frame" aria-hidden="true">&#128247;</div>
           <figcaption>Department of Aging visit</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="members" style="background:var(--bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Meet the Club</h2>
+        <p>The students who organize calls, run trainings, and keep The Neighbor Line going. Replace these placeholders with your own club officers and members.</p>
+      </div>
+      <div class="members">
+        <div class="member-card">
+          <div class="avatar" aria-hidden="true">&#128100;</div>
+          <div class="name">Your Name Here</div>
+          <div class="role">President</div>
+          <p class="bio">Add a short bio here.</p>
+        </div>
+        <div class="member-card">
+          <div class="avatar" aria-hidden="true">&#128100;</div>
+          <div class="name">Your Name Here</div>
+          <div class="role">Vice President</div>
+          <p class="bio">Add a short bio here.</p>
+        </div>
+        <div class="member-card">
+          <div class="avatar" aria-hidden="true">&#128100;</div>
+          <div class="name">Your Name Here</div>
+          <div class="role">Volunteer Coordinator</div>
+          <p class="bio">Add a short bio here.</p>
+        </div>
+        <div class="member-card">
+          <div class="avatar" aria-hidden="true">&#128100;</div>
+          <div class="name">Your Name Here</div>
+          <div class="role">Secretary / Treasurer</div>
+          <p class="bio">Add a short bio here.</p>
+        </div>
       </div>
     </div>
   </section>
