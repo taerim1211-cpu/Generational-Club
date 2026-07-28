@@ -190,6 +190,13 @@
     font-size: 34px;
     color: var(--text-soft);
   }
+  .photo-tile img.frame {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-style: solid;
+    border-width: 1px;
+  }
   .photo-tile figcaption {
     margin-top: 10px;
     font-size: 16px;
@@ -438,8 +445,7 @@
       <!-- Replace each .frame div below with an <img src="photos/your-file.jpg" alt="..."> once you have real photos -->
       <div class="gallery">
         <figure class="photo-tile">
-          <div class="frame" aria-hidden="true">&#128247;</div>
-          <figcaption>Painting session at a partner home</figcaption>
+          <img src="photos/IMG_8853.jpeg" alt="Generational Club volunteers with residents during a craft session" class="frame">
         </figure>
         <figure class="photo-tile">
           <div class="frame" aria-hidden="true">&#128247;</div>
