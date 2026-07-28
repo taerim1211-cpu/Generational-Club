@@ -60,16 +60,27 @@
   header {
     background: #bbf1f1;
     color: var(--primary-dark);
-    padding: 22px 0;
+    padding: 40px 0 32px;
     text-align: center;
+    border-bottom: 4px solid #008080;
   }
   .logo {
     font-family: 'Lora', Georgia, serif;
-    font-size: 34px;
-    font-weight: 600;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 700;
     color: var(--primary-dark);
     text-decoration: none;
     text-align: center;
+    letter-spacing: -0.01em;
+    display: inline-block;
+  }
+  .tagline {
+    margin: 10px 0 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #008080;
   }
   nav.links ul {
     list-style: none;
@@ -385,6 +396,7 @@
 <header>
   <div class="wrap">
     <a href="#top" class="logo">Generational Club</a>
+    <p class="tagline">Marriotts Ridge High School</p>
   </div>
 </header>
 
