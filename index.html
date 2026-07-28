@@ -171,6 +171,32 @@
     width: 30%;
   }
 
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .photo-tile {
+    margin: 0;
+  }
+  .photo-tile .frame {
+    aspect-ratio: 4 / 3;
+    background: var(--bg-alt);
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    color: var(--text-soft);
+  }
+  .photo-tile figcaption {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--text-soft);
+    text-align: center;
+  }
+
   .partner-box {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -273,12 +299,12 @@
 
   @media (max-width: 760px) {
     .pillars, .quotes, .foot-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
+    .steps, .gallery { grid-template-columns: 1fr 1fr; }
     nav.links { display: none; }
     table.programs th { width: auto; }
   }
   @media (max-width: 480px) {
-    .steps { grid-template-columns: 1fr; }
+    .steps, .gallery { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -294,6 +320,7 @@
       <ul>
         <li><a href="#mission">Mission</a></li>
         <li><a href="#programs">Programs</a></li>
+        <li><a href="#photos">Photos</a></li>
         <li><a href="#partnership">Partnership</a></li>
         <li><a href="#involved">Get Involved</a></li>
       </ul>
@@ -368,6 +395,42 @@
           <td>If a call ever raises a concern &mdash; a fall, a missed medication, a sudden change &mdash; Department of Aging caseworkers are one call away.</td>
         </tr>
       </table>
+    </div>
+  </section>
+
+  <section id="photos" style="background:var(--panel);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Photos</h2>
+        <p>A look at our calls, trainings, and meetups. Swap these placeholders for your own club photos as you take them.</p>
+      </div>
+      <!-- Replace each .frame div below with an <img src="photos/your-file.jpg" alt="..."> once you have real photos -->
+      <div class="gallery">
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>Weekly call kickoff</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>Volunteer training day</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>Club meeting</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>Memory Lane visit</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>New caller orientation</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <div class="frame" aria-hidden="true">&#128247;</div>
+          <figcaption>Department of Aging visit</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
