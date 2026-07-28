@@ -233,6 +233,11 @@
   .member-card .role { color: var(--accent); font-size: 15px; font-weight: 600; margin: 2px 0 8px; }
   .member-card .bio { color: var(--text-soft); font-size: 15px; margin: 0; }
 
+  .partners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
   .partner-box {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -240,6 +245,7 @@
     padding: 40px;
     text-align: center;
   }
+  .partner-box h3 { font-size: 20px; }
   .partner-box .badge {
     display: flex;
     width: 100px;
@@ -335,7 +341,7 @@
   }
 
   @media (max-width: 760px) {
-    .pillars, .quotes, .foot-grid { grid-template-columns: 1fr; }
+    .pillars, .quotes, .foot-grid, .partners { grid-template-columns: 1fr; }
     .steps, .gallery, .members { grid-template-columns: 1fr 1fr; }
     nav.links { display: none; }
     table.programs th { width: auto; }
@@ -508,10 +514,21 @@
 
   <section id="partnership">
     <div class="wrap">
-      <div class="partner-box">
-        <div class="badge">Howard Co.<br>Dept. of<br>Aging</div>
-        <h2>Proud to partner with the Howard County Department of Aging.</h2>
-        <p>Our visit schedule, activity planning, and volunteer training are coordinated with the Howard County Department of Aging and the senior living facilities we visit &mdash; so every craft session is safe, welcoming, and built around residents' needs.</p>
+      <div class="section-head">
+        <h2>Our Partners</h2>
+        <p>We're grateful to work alongside local organizations who help make our visits possible.</p>
+      </div>
+      <div class="partners">
+        <div class="partner-box">
+          <div class="badge">Howard Co.<br>Dept. of<br>Aging</div>
+          <h3>Howard County Department of Aging</h3>
+          <p>Our visit schedule, activity planning, and volunteer training are coordinated with the Howard County Department of Aging and the senior living facilities we visit &mdash; so every craft session is safe, welcoming, and built around residents' needs.</p>
+        </div>
+        <div class="partner-box">
+          <div class="badge">Brighton<br>Gardens<br>Columbia</div>
+          <h3>Brighton Gardens of Columbia</h3>
+          <p>One of the senior living communities our members regularly visit for craft and painting sessions with residents.</p>
+        </div>
       </div>
     </div>
   </section>
