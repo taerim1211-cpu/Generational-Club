@@ -240,6 +240,68 @@
     color: var(--text-soft);
     text-align: center;
   }
+  .gallery .photo-tile img.frame {
+    cursor: zoom-in;
+  }
+  .gallery .photo-tile img.frame:focus-visible {
+    outline-offset: 3px;
+  }
+
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 22, 27, 0.92);
+    z-index: 1000;
+    display: none;
+  }
+  .lightbox-overlay.open { display: block; }
+  .lightbox-inner {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 76px;
+  }
+  .lightbox-inner img {
+    max-width: 100%;
+    max-height: 76vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .lightbox-caption {
+    color: #fff;
+    font-size: 16px;
+    margin: 16px 0 0;
+    text-align: center;
+    max-width: 680px;
+  }
+  .lightbox-btn {
+    position: fixed;
+    z-index: 2;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .lightbox-btn:hover { background: rgba(255,255,255,.25); }
+  .lightbox-close { top: 20px; right: 20px; }
+  .lightbox-prev { top: 50%; left: 20px; transform: translateY(-50%); }
+  .lightbox-next { top: 50%; right: 20px; transform: translateY(-50%); }
+  @media (max-width: 600px) {
+    .lightbox-inner { padding: 90px 20px; }
+    .lightbox-btn { width: 40px; height: 40px; font-size: 17px; }
+  }
 
   .members {
     display: grid;
@@ -666,6 +728,16 @@
 
 </main>
 
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
+  <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&#10005;</button>
+  <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
+  <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -721,6 +793,92 @@
 
     nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') setOpen(false);
+    });
+  })();
+
+  (function () {
+    var thumbs = Array.prototype.slice.call(document.querySelectorAll('.gallery .photo-tile img'));
+    if (!thumbs.length) return;
+
+    var overlay = document.getElementById('lightbox');
+    var inner = overlay.querySelector('.lightbox-inner');
+    var imgEl = document.getElementById('lightboxImg');
+    var captionEl = document.getElementById('lightboxCaption');
+    var closeBtn = document.getElementById('lightboxClose');
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
+    var focusable = [closeBtn, prevBtn, nextBtn];
+    var currentIndex = 0;
+    var lastFocused = null;
+
+    if (thumbs.length <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    }
+
+    thumbs.forEach(function (img, i) {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', 'View larger: ' + img.alt);
+      img.addEventListener('click', function () { openLightbox(i); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(i);
+        }
+      });
+    });
+
+    function show(index) {
+      currentIndex = (index + thumbs.length) % thumbs.length;
+      var img = thumbs[currentIndex];
+      imgEl.src = img.currentSrc || img.src;
+      imgEl.alt = img.alt;
+      captionEl.textContent = img.alt;
+    }
+
+    function openLightbox(index) {
+      lastFocused = document.activeElement;
+      show(index);
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function onKeydown(e) {
+      if (e.key === 'Escape') { closeLightbox(); }
+      else if (e.key === 'ArrowLeft') { show(currentIndex - 1); }
+      else if (e.key === 'ArrowRight') { show(currentIndex + 1); }
+      else if (e.key === 'Tab') { trapFocus(e); }
+    }
+
+    function trapFocus(e) {
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', function () { show(currentIndex - 1); });
+    nextBtn.addEventListener('click', function () { show(currentIndex + 1); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target === inner) closeLightbox();
     });
   })();
 </script>
