@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-01T00:00:00Z",
+  "title": "Design System: Generational Club",
+  "extensions": {
+    "colorMeta": {
+      "riso-flame-red": { "role": "primary", "displayName": "Riso Flame Red", "canonical": "#C4341F", "tonalRamp": ["#2B0E08", "#4A160D", "#6E2013", "#94291A", "#C4341F", "#DE6A52", "#EFA895", "#FBE3DB"] },
+      "riso-flame-red-bright": { "role": "primary-decorative", "displayName": "Riso Flame Red — Bright", "canonical": "#FF4B33", "tonalRamp": ["#330D06", "#5C160A", "#8A2210", "#BC3018", "#FF4B33", "#FF7A62", "#FFAEA0", "#FFE2DC"] },
+      "riso-federal-blue": { "role": "secondary", "displayName": "Riso Federal Blue", "canonical": "#005A8F", "tonalRamp": ["#001522", "#002A3D", "#003F59", "#004F76", "#005A8F", "#3E86AC", "#85B7D0", "#CFE6F1"] },
+      "riso-federal-blue-bright": { "role": "secondary-decorative", "displayName": "Riso Federal Blue — Bright", "canonical": "#0072B5", "tonalRamp": ["#001B2B", "#00344E", "#004D71", "#005F92", "#0072B5", "#4C9BCB", "#93C4E1", "#DAEDF7"] },
+      "warm-uncoated-paper": { "role": "neutral-bg", "displayName": "Warm Uncoated Paper", "canonical": "#F3ECD9", "tonalRamp": ["#2A2620", "#453F33", "#645B47", "#8A7E64", "#B6A98A", "#D8CDB0", "#EEE6D2", "#F3ECD9"] },
+      "lighter-print-stock": { "role": "neutral-surface", "displayName": "Lighter Print Stock", "canonical": "#FBF3E0", "tonalRamp": ["#2E291F", "#4A4232", "#6A6047", "#928561", "#BFAF87", "#E1D4B2", "#F5EBD3", "#FBF3E0"] },
+      "espresso-ink": { "role": "neutral-text", "displayName": "Espresso Ink", "canonical": "#2A2620", "tonalRamp": ["#0E0C0A", "#1A1712", "#2A2620", "#453F35", "#655C4C", "#8B8067", "#B7AB8C", "#E4DBC5"] },
+      "soft-ink-wash": { "role": "neutral-text-soft", "displayName": "Soft Ink Wash", "canonical": "#5C5648", "tonalRamp": ["#221F1A", "#38342B", "#4C473B", "#5C5648", "#7A7362", "#9C9481", "#C1BAA6", "#E6E1D1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display / Headline", "purpose": "Hero headline and all h1/h2/h3 elements; Zilla Slab bold." },
+      "body": { "displayName": "Body", "purpose": "Running copy, captions, card text; Public Sans." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ink-fringe-transition", "value": "transform .16s ease, opacity .16s ease", "purpose": "Photo misregistration fringe easing on hover/focus/active; disabled entirely under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "760px" },
+      { "name": "mobile", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid Riso Flame Red CTA, square corners, used for the main volunteer-signup actions.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Become a Volunteer</a>",
+      "css": ".ds-btn-primary { display: inline-block; padding: 13px 26px; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; background: #C4341F; color: #FBF3E0; border: 2px solid #C4341F; } .ds-btn-primary:hover { background: #A32A18; border-color: #A32A18; } .ds-btn-primary:focus-visible { outline: 3px solid #2A2620; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outline Riso Federal Blue CTA for lower-emphasis actions.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">See How It Works</a>",
+      "css": ".ds-btn-secondary { display: inline-block; padding: 13px 26px; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; background: transparent; color: #005A8F; border: 2px solid #005A8F; } .ds-btn-secondary:hover { background: #005A8F; color: #FBF3E0; } .ds-btn-secondary:focus-visible { outline: 3px solid #2A2620; outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "pillar",
+      "description": "Generic bordered card used for Mission pillars, member profiles, and partner boxes — flat, square-cornered, ink-bordered, grained paper background.",
+      "html": "<div class=\"ds-card\"><span class=\"ds-card-mark\"></span><h3 class=\"ds-card-title\">Connection</h3><p class=\"ds-card-body\">Real conversation and company while creating something together.</p></div>",
+      "css": ".ds-card { background: radial-gradient(rgba(42,38,32,.035) 1px, transparent 1px) 0 0/6px 6px, #FBF3E0; border: 2px solid #2A2620; padding: 26px 22px; font-family: 'Public Sans', sans-serif; } .ds-card-mark { display: inline-block; width: 13px; height: 13px; margin-bottom: 12px; background: #FF4B33; mix-blend-mode: multiply; } .ds-card-title { font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 20px; margin: 0 0 8px; color: #2A2620; } .ds-card-body { font-size: 16.5px; color: #5C5648; margin: 0; }"
+    },
+    {
+      "name": "Photo Frame",
+      "kind": "custom",
+      "refersTo": "photo-tile",
+      "description": "Signature component: an ink-bordered photo with corner registration marks, a halftone-dot overlay, and a red/blue misregistration fringe that intensifies on hover/focus/active.",
+      "html": "<figure class=\"ds-photo\"><span class=\"ds-reg-mark ds-reg-tl\"></span><span class=\"ds-reg-mark ds-reg-br\"></span><span class=\"ds-halftone\"></span><img class=\"ds-photo-img\" src=\"\" alt=\"Example craft photo\"></figure>",
+      "css": ".ds-photo { position: relative; margin: 0; aspect-ratio: 4/3; } .ds-photo::before, .ds-photo::after { content: ''; position: absolute; inset: 0; z-index: 0; transition: transform .16s ease, opacity .16s ease; } .ds-photo::before { background: #FF4B33; mix-blend-mode: multiply; opacity: .08; transform: translate(-1px,-1px); } .ds-photo::after { background: #0072B5; mix-blend-mode: multiply; opacity: .07; transform: translate(1px,1px); } .ds-photo:hover::before { opacity: .5; transform: translate(-4px,-4px); } .ds-photo:hover::after { opacity: .45; transform: translate(4px,4px); } .ds-photo-img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; border: 2px solid #2A2620; background: #FBF3E0; } .ds-halftone { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(rgba(42,38,32,.55) 1px, transparent 1px) 0 0/4px 4px; mix-blend-mode: multiply; opacity: .12; } .ds-reg-mark { position: absolute; z-index: 3; width: 12px; height: 12px; pointer-events: none; } .ds-reg-mark::before, .ds-reg-mark::after { content: ''; position: absolute; background: #2A2620; } .ds-reg-mark::before { top: 5px; left: 0; width: 12px; height: 2px; } .ds-reg-mark::after { top: 0; left: 5px; width: 2px; height: 12px; } .ds-reg-tl { top: -7px; left: -7px; } .ds-reg-br { bottom: -7px; right: -7px; top: auto; left: auto; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "Sticky masthead with wordmark and inline links; red-underline hover state.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">Generational<span class=\"ds-nav-dot\">.</span>Club</a><ul class=\"ds-nav-links\"><li><a href=\"#\">Mission</a></li><li><a href=\"#\">Photos</a></li><li><a href=\"#\">Get Involved</a></li></ul></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; background: radial-gradient(rgba(42,38,32,.035) 1px, transparent 1px) 0 0/6px 6px, #FBF3E0; border-bottom: 3px solid #2A2620; padding: 14px 24px; font-family: 'Public Sans', sans-serif; } .ds-nav-brand { font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 22px; color: #2A2620; text-decoration: none; } .ds-nav-dot { color: #C4341F; } .ds-nav-links { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; } .ds-nav-links a { color: #2A2620; text-decoration: none; font-weight: 600; font-size: 15.5px; border-bottom: 2px solid transparent; padding-bottom: 2px; } .ds-nav-links a:hover { color: #C4341F; border-bottom-color: #C4341F; }"
+    },
+    {
+      "name": "Ink Mark",
+      "kind": "custom",
+      "refersTo": "ink-mark",
+      "description": "Small solid-color swatch (red or blue) used as a non-numeric category marker for parallel content — the replacement for numbered badges on non-sequential lists.",
+      "html": "<span class=\"ds-ink-mark ds-ink-mark-red\"></span>",
+      "css": ".ds-ink-mark { display: inline-block; width: 13px; height: 13px; mix-blend-mode: multiply; } .ds-ink-mark-red { background: #FF4B33; } .ds-ink-mark-blue { background: #0072B5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Two-Ink Print Run",
+    "overview": "The site presents itself as a small risograph-printed zine about a real, currently-running teen volunteer club, not a nonprofit-template landing page. Two spot inks — a flame red and a federal blue — carry every accent, CTA, and category marker in the system; they multiply into a darker third tone wherever they physically overlap (the hero's ink blobs), exactly as a real two-pass riso print would. A fine halftone-dot grain sits under every paper surface and over every photograph, so the site reads as printed material rather than rendered UI. The system is deliberately plain-spoken rather than precious: square corners, solid ink borders instead of shadows, and real craft-session photography doing the persuading rather than illustration or stock imagery.\n\nThe build explicitly rejects two adjacent failure modes: it is not the cream-background/rounded-card/stock-photo default that most \"volunteer nonprofit\" sites converge on, and it does not tip into a stylish \"indie design studio\" look that would read as more agency than teen club. Numbered sequence badges are reserved for the one genuinely ordered process on the site (the four-step join flow); parallel or categorical content never borrows that numbering, because a previous pass over-applied it and implied an order that didn't exist.",
+    "keyCharacteristics": [
+      "Two spot inks (red + blue) and nothing else; no third accent color anywhere.",
+      "Flat, bordered surfaces — no box-shadow in the system; depth comes from a 2px solid ink border.",
+      "Square corners everywhere except perfect circles (avatars, partner badges).",
+      "Halftone-dot grain on every paper surface and every real photograph, never selectively.",
+      "Numbered badges are reserved for genuine sequences; categorical content uses a plain ink-color swatch instead."
+    ],
+    "rules": [
+      { "name": "The Two-Ink Rule", "body": "Only Riso Flame Red and Riso Federal Blue (and their bright decorative variants) carry color in this system. A third accent color is never introduced, even for a single new component.", "section": "colors" },
+      { "name": "The Bright-Never-Under-Text Rule", "body": "The -bright decorative variants exist only because they fail WCAG contrast as text/background pairs. They are used exclusively for shapes nothing is written on (ink blobs, hover fringes) — never as a button fill, link color, or text color.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "No heading is preceded by an eyebrow/kicker label. A prior build shipped one above the hero headline; it was removed and must not return regardless of how it's requested — fold the context into the heading or lead copy instead.", "section": "typography" },
+      { "name": "The Border-Not-Shadow Rule", "body": "Any new component that needs visual separation from its background gets a 2px solid Espresso Ink border. Never reach for box-shadow to create that separation — it isn't in this system's material vocabulary.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do apply the --grain halftone texture to every surface using the paper or print-stock neutral — never let a section fall back to a flat, ungrained color.",
+      "Do keep buttons, cards, and frames square-cornered; reserve perfect circles for avatars and badges only.",
+      "Do author icons as inline SVG at a consistent 2px stroke weight.",
+      "Do keep the photo ink-fringe effect present (however subtle) at rest, not gated entirely behind hover, so touch users see it too.",
+      "Do reserve numbered folio-badges for content that is a real, order-dependent sequence."
+    ],
+    "donts": [
+      "Don't introduce a third spot color; the system is red + blue, full stop.",
+      "Don't use a -bright color variant as a text or button-fill color — it fails contrast by design and exists for decoration only.",
+      "Don't add a kicker/eyebrow label above any heading.",
+      "Don't add a colored border-left/border-right accent above 1px to any card, row, or callout.",
+      "Don't add box-shadow anywhere; separation comes from a 2px solid ink border.",
+      "Don't apply numbered badges to parallel/categorical content (e.g., a 3-item feature list) — that implies a false sequence."
+    ]
+  }
+}

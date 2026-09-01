@@ -1,312 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--
+  DIRECTION CONTRACT
+  THESIS: A community craft club proven through its own two-ink print run, not a nonprofit template — a small zine about real visits, not a pitch for imagined ones.
+  OWN-WORLD: Warm uncoated paper (#F3ECD9/#FBF3E0), two riso spot inks — flame red and federal blue — multiplying at overlaps, fine halftone grain, hairline registration marks on photo frames. Zilla Slab for headlines, Public Sans for body (a callback to the prior site).
+  STORY: A visitor — teen or parent/facility staff — understands within seconds this is a real, currently-running, institutionally-backed program; believes it is organized and dementia-aware; acts by applying to volunteer.
+  FIRST VIEWPORT: Sticky paper masthead nav, then a hero on paper ground with overlapping red/blue ink blobs upper-right, eyebrow + headline + lead + two CTAs (solid red primary, outline blue secondary) left-aligned.
+  FORM: Riso ("risograph-web-system" catalog challenger, fused with this club's real facts), chosen by the user from 4 presented directions after a direction-level roll; seed key b50dab3f.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md.
+-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Generational Club — Marriotts Ridge High School</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* warm, low-glare background with strong, calm contrast for reading ease */
-    --bg: #FAF6EF;
-    --bg-alt: #F1EAD9;
-    --panel: #FFFFFF;
-    --text: #1F2A33;
-    --text-soft: #45525B;
-    --border: #D9CEB8;
-    --primary: #1B5E76;
-    --primary-dark: #123F4F;
-    --accent: #A6431E;
-    --accent-dark: #832F11;
-    --focus: #F0A93E;
-    --accent-bg: #D6ECE9;
+    --paper: #F3ECD9;
+    --paper-2: #FBF3E0;
+    --ink: #2A2620;
+    --ink-soft: #5C5648;
+    --red: #C4341F;
+    --red-bright: #FF4B33;
+    --blue: #005A8F;
+    --blue-bright: #0072B5;
+    --border: rgba(42,38,32,.18);
+    --border-strong: rgba(42,38,32,.36);
+    --grain: radial-gradient(rgba(42,38,32,.035) 1px, transparent 1px) 0 0/6px 6px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--grain), var(--paper);
+    color: var(--ink);
     font-family: 'Public Sans', Arial, Helvetica, sans-serif;
-    font-size: 19px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 {
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 600;
-    color: var(--primary-dark);
-    margin: 0 0 12px 0;
-    line-height: 1.25;
-  }
-  a { color: var(--primary-dark); text-decoration: underline; }
-  a:visited { color: var(--primary-dark); }
-  a:hover { color: var(--accent); }
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-
-  .topbar {
-    background: var(--accent-bg);
-    color: var(--primary-dark);
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(18,63,79,.15);
-  }
-  .topbar .wrap {
-    display: flex;
-    justify-content: flex-end;
-    max-width: none;
-  }
-  header {
-    background: var(--accent-bg);
-    color: var(--primary-dark);
-    padding: 40px 0 32px;
-    text-align: center;
-    border-bottom: 4px dashed #008080;
-  }
-  .craft-accent {
-    margin-top: 12px;
-    font-size: 20px;
-    letter-spacing: 12px;
-    opacity: 0.85;
-  }
-  .logo {
-    font-family: 'Lora', Georgia, serif;
-    font-size: clamp(38px, 6vw, 58px);
+    font-family: 'Zilla Slab', Georgia, serif;
     font-weight: 700;
-    color: var(--primary-dark);
-    text-decoration: none;
-    text-align: center;
-    letter-spacing: -0.01em;
-    display: inline-block;
+    color: var(--ink);
+    margin: 0 0 12px 0;
+    line-height: 1.1;
   }
-  .tagline {
-    margin: 10px 0 0;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--primary-dark);
+  a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  a:visited { color: var(--blue); }
+  a:hover { color: var(--red); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* masthead */
+  .masthead {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--grain), var(--paper-2);
+    border-bottom: 3px solid var(--ink);
   }
+  .masthead .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; gap: 16px; max-width: 980px;
+  }
+  .wordmark {
+    font-family: 'Zilla Slab', Georgia, serif; font-weight: 700;
+    font-size: clamp(20px, 3vw, 26px); color: var(--ink);
+    text-decoration: none; letter-spacing: -0.01em;
+  }
+  .wordmark span { color: var(--red); }
   nav.links ul {
-    list-style: none;
-    display: flex;
-    gap: 26px;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
+    list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; flex-wrap: wrap;
   }
   nav.links a {
-    color: var(--primary-dark);
-    text-decoration: underline;
-    font-size: 17px;
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15.5px;
+    border-bottom: 2px solid transparent; padding-bottom: 2px;
   }
+  nav.links a:hover { color: var(--red); border-bottom-color: var(--red); }
   .nav-toggle-btn {
-    display: none;
-    background: none;
-    border: 2px solid var(--primary-dark);
-    border-radius: 6px;
-    color: var(--primary-dark);
-    font-size: 22px;
-    line-height: 1;
-    padding: 6px 12px;
-    cursor: pointer;
+    display: none; background: none; border: 2px solid var(--ink); border-radius: 4px;
+    color: var(--ink); line-height: 1; padding: 8px 10px; cursor: pointer;
   }
-  .nav-toggle-btn:hover { background: rgba(18,63,79,.08); }
+  .nav-toggle-btn:hover { background: rgba(42,38,32,.08); }
+  .nav-toggle-btn svg { display: block; width: 20px; height: 20px; }
+  .nav-toggle-btn .icon-close { display: none; }
+  .nav-toggle-btn[aria-expanded="true"] .icon-menu { display: none; }
+  .nav-toggle-btn[aria-expanded="true"] .icon-close { display: block; }
 
   .btn {
-    display: inline-block;
-    padding: 14px 26px;
-    background: #008080;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    border: 2px solid #006666;
-    border-radius: 8px;
-    min-width: 230px;
-    text-align: center;
+    display: inline-block; padding: 13px 26px; text-decoration: none; font-weight: 700;
+    font-size: 16px; border: 2px solid var(--ink); min-width: 210px; text-align: center;
+    font-family: 'Public Sans', sans-serif;
   }
-  .btn:hover { background: #006666; color: #fff; }
-  .btn-alt {
-    background: #fff;
-    color: var(--primary-dark);
-    border: 2px solid var(--primary-dark);
-  }
-  .btn-alt:hover { background: var(--bg-alt); color: var(--primary-dark); }
+  .btn.solid-red { background: var(--red); color: var(--paper-2); border-color: var(--red); }
+  .btn.solid-red:hover { background: #A32A18; border-color: #A32A18; color: var(--paper-2); }
+  .btn.outline-blue { background: transparent; color: var(--blue); border-color: var(--blue); }
+  .btn.outline-blue:hover { background: var(--blue); color: var(--paper-2); }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
   /* hero */
-  .hero {
-    padding: 56px 0 48px;
-    text-align: center;
-    background: var(--panel);
-    border-bottom: 1px solid var(--border);
+  .hero { position: relative; overflow: hidden; padding: 54px 0 46px; }
+  .hero .blob {
+    position: absolute; border-radius: 46% 54% 55% 45% / 50% 45% 55% 50%;
+    mix-blend-mode: multiply; pointer-events: none;
   }
-  .hero h1 { font-size: clamp(30px, 4vw, 42px); }
-  .hero p.lead {
-    max-width: 620px;
-    margin: 18px auto 28px;
-    color: var(--text-soft);
-    font-size: 20px;
-  }
-  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero .blob.red { background: var(--red-bright); width: 46vw; max-width: 480px; height: 46vw; max-height: 480px; top: -18%; right: -8%; opacity: .9; }
+  .hero .blob.blue { background: var(--blue-bright); width: 38vw; max-width: 400px; height: 38vw; max-height: 400px; top: -6%; right: 14%; opacity: .85; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 { font-size: clamp(32px, 4.6vw, 50px); max-width: 15ch; margin-top: 0; }
+  .hero p.lead { max-width: 46ch; margin: 18px 0 28px; color: var(--ink-soft); font-size: 19px; }
 
   /* trust strip */
   .trust {
-    background: var(--bg-alt);
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-    text-align: center;
-    font-size: 17px;
-    color: var(--text-soft);
+    background: var(--blue); color: var(--paper-2);
+    padding: 16px 0; text-align: center; font-size: 16px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
   }
-  .trust .wrap { max-width: 700px; }
-  .trust b { color: var(--primary-dark); }
+  .trust b { color: var(--paper-2); }
 
   section { padding: 56px 0; }
-  .section-head { text-align: center; max-width: 660px; margin: 0 auto 40px; }
+  .section-alt { background: var(--grain), var(--paper-2); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+  .section-alt.no-bottom-border { border-bottom: none; }
+  .section-head { max-width: 660px; margin: 0 auto 40px; }
   .section-head h2 { font-size: clamp(26px, 3vw, 32px); }
-  .section-head p { color: var(--text-soft); font-size: 19px; }
+  .section-head p { color: var(--ink-soft); font-size: 18px; margin: 0; }
 
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  .folio-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; font-family: 'Zilla Slab', serif; font-weight: 700;
+    font-size: 20px; -webkit-text-stroke: 1.5px currentColor; color: transparent;
+    margin-bottom: 10px;
   }
+  .folio-badge.red { -webkit-text-stroke-color: var(--red); }
+  .folio-badge.blue { -webkit-text-stroke-color: var(--blue); }
+
+  .ink-mark {
+    display: inline-block; width: 13px; height: 13px; margin-bottom: 12px;
+    mix-blend-mode: multiply;
+  }
+  .ink-mark.red { background: var(--red-bright); }
+  .ink-mark.blue { background: var(--blue-bright); }
+  .ink-mark.inline { margin: 0 8px 0 0; vertical-align: middle; }
+
+  /* pillars */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .pillar {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 24px;
-    text-align: center;
+    background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 26px 22px;
   }
-  .pillar .icon { font-size: 34px; margin-bottom: 12px; }
   .pillar h3 { font-size: 20px; }
-  .pillar p { font-size: 17px; color: var(--text-soft); margin: 0; }
+  .pillar p { font-size: 16.5px; color: var(--ink-soft); margin: 0; }
 
   /* activities */
   table.programs {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
+    width: 100%; border-collapse: collapse; background: var(--grain), var(--paper-2);
+    border: 2px solid var(--ink);
   }
   table.programs th, table.programs td {
-    border-bottom: 1px solid var(--border);
-    padding: 20px;
-    text-align: left;
-    vertical-align: top;
-    font-size: 18px;
+    border-bottom: 1px solid var(--border-strong); padding: 22px 20px; text-align: left;
+    vertical-align: top; font-size: 17px;
   }
   table.programs tr:last-child th, table.programs tr:last-child td { border-bottom: none; }
   table.programs th {
-    background: var(--bg-alt);
-    color: var(--primary-dark);
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 600;
-    width: 30%;
+    font-family: 'Zilla Slab', serif; font-weight: 700; width: 32%;
   }
+  table.programs td { color: var(--ink-soft); }
 
-  .gallery-group {
-    margin-bottom: 40px;
-  }
+  /* photo gallery */
+  .gallery-group { margin-bottom: 44px; }
   .gallery-group:last-child { margin-bottom: 0; }
   .gallery-group-title {
-    font-family: 'Lora', Georgia, serif;
-    color: var(--primary-dark);
-    font-size: 20px;
-    margin: 0 0 16px;
+    display: inline-block; font-family: 'Zilla Slab', serif; font-weight: 700;
+    font-size: 15px; letter-spacing: .02em; color: var(--paper-2);
+    background: var(--ink); padding: 6px 14px; margin: 0 0 18px;
   }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .photo-tile { margin: 0; }
+  .frame-wrap { position: relative; }
+  .frame-wrap::before, .frame-wrap::after {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    transition: transform .16s ease, opacity .16s ease;
   }
-  .photo-tile {
-    margin: 0;
-  }
+  .frame-wrap::before { background: var(--red-bright); mix-blend-mode: multiply; opacity: .08; transform: translate(-1px,-1px); }
+  .frame-wrap::after { background: var(--blue-bright); mix-blend-mode: multiply; opacity: .07; transform: translate(1px,1px); }
+  .photo-tile:hover .frame-wrap::before,
+  .photo-tile:focus-within .frame-wrap::before,
+  .photo-tile:active .frame-wrap::before { opacity: .5; transform: translate(-4px,-4px); }
+  .photo-tile:hover .frame-wrap::after,
+  .photo-tile:focus-within .frame-wrap::after,
+  .photo-tile:active .frame-wrap::after { opacity: .45; transform: translate(4px,4px); }
   .photo-tile .frame {
-    aspect-ratio: 4 / 3;
-    background: var(--bg-alt);
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 34px;
-    color: var(--text-soft);
-  }
-  .photo-tile img.frame {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-style: solid;
-    border-width: 1px;
-  }
-  .photo-tile figcaption {
-    margin-top: 10px;
-    font-size: 16px;
-    color: var(--text-soft);
-    text-align: center;
-  }
-  .gallery .photo-tile img.frame {
+    position: relative; z-index: 1; aspect-ratio: 4 / 3; width: 100%; height: 100%;
+    object-fit: cover; display: block; border: 2px solid var(--ink); background: var(--paper-2);
     cursor: zoom-in;
   }
-  .gallery .photo-tile img.frame:focus-visible {
-    outline-offset: 3px;
+  .frame-wrap .halftone {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: radial-gradient(rgba(42,38,32,.55) 1px, transparent 1px) 0 0/4px 4px;
+    mix-blend-mode: multiply; opacity: .12;
+  }
+  .frame-wrap .reg-mark {
+    position: absolute; z-index: 3; top: -7px; left: -7px; width: 12px; height: 12px;
+    pointer-events: none;
+  }
+  .frame-wrap .reg-mark.br { top: auto; left: auto; bottom: -7px; right: -7px; }
+  .frame-wrap .reg-mark::before, .frame-wrap .reg-mark::after {
+    content: ""; position: absolute; background: var(--ink);
+  }
+  .frame-wrap .reg-mark::before { top: 5px; left: 0; width: 12px; height: 2px; }
+  .frame-wrap .reg-mark::after { top: 0; left: 5px; width: 2px; height: 12px; }
+  .photo-tile figcaption {
+    margin-top: 10px; font-size: 15px; color: var(--ink-soft); text-align: left;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .frame-wrap::before, .frame-wrap::after { transition: none; }
   }
 
   .lightbox-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 22, 27, 0.92);
-    z-index: 1000;
-    display: none;
+    position: fixed; inset: 0; background: rgba(26, 21, 18, 0.94); z-index: 1000; display: none;
   }
   .lightbox-overlay.open { display: block; }
   .lightbox-inner {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 76px;
+    position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 80px 76px;
   }
-  .lightbox-inner img {
-    max-width: 100%;
-    max-height: 76vh;
-    border-radius: 10px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  .lightbox-media { position: relative; display: inline-block; max-width: 100%; max-height: 76vh; }
+  .lightbox-inner img { display: block; max-width: 100%; max-height: 76vh; border: 3px solid var(--paper-2); }
+  .lightbox-media .halftone {
+    position: absolute; inset: 3px; pointer-events: none;
+    background: radial-gradient(rgba(42,38,32,.55) 1px, transparent 1px) 0 0/4px 4px;
+    mix-blend-mode: multiply; opacity: .12;
   }
-  .lightbox-caption {
-    color: #fff;
-    font-size: 16px;
-    margin: 16px 0 0;
-    text-align: center;
-    max-width: 680px;
-  }
+  .lightbox-caption { color: var(--paper-2); font-size: 16px; margin: 16px 0 0; text-align: center; max-width: 680px; }
   .lightbox-btn {
-    position: fixed;
-    z-index: 2;
-    background: rgba(255,255,255,.12);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,.4);
-    border-radius: 50%;
-    width: 46px;
-    height: 46px;
-    font-size: 20px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed; z-index: 2; background: rgba(243,236,217,.14); color: var(--paper-2);
+    border: 1px solid rgba(243,236,217,.4); border-radius: 50%; width: 46px; height: 46px;
+    font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center;
     cursor: pointer;
   }
-  .lightbox-btn:hover { background: rgba(255,255,255,.25); }
+  .lightbox-btn:hover { background: var(--red-bright); border-color: var(--red-bright); }
+  .lightbox-btn svg { width: 18px; height: 18px; display: block; }
   .lightbox-close { top: 20px; right: 20px; }
   .lightbox-prev { top: 50%; left: 20px; transform: translateY(-50%); }
   .lightbox-next { top: 50%; right: 20px; transform: translateY(-50%); }
@@ -315,150 +247,79 @@
     .lightbox-btn { width: 40px; height: 40px; font-size: 17px; }
   }
 
-  .members {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
-    justify-content: center;
-    gap: 24px;
-  }
-  .member-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 18px;
-    text-align: center;
-  }
+  /* members */
+  .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 240px)); justify-content: center; gap: 24px; }
+  .member-card { background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 24px 18px; text-align: center; }
   .member-card .avatar {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    background: var(--bg-alt);
-    border: 2px dashed var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    color: var(--text-soft);
-    margin: 0 auto 14px;
+    width: 80px; height: 80px; border-radius: 50%; background: var(--red);
+    color: var(--paper-2); display: flex; align-items: center; justify-content: center;
+    font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 26px; margin: 0 auto 14px;
   }
-  .member-card .name { font-weight: 600; color: var(--primary-dark); font-size: 18px; }
-  .member-card .role { color: var(--accent); font-size: 15px; font-weight: 600; margin: 2px 0 8px; }
-  .member-card .bio { color: var(--text-soft); font-size: 15px; margin: 0; }
+  .member-card .name { font-weight: 700; font-family: 'Zilla Slab', serif; font-size: 19px; }
+  .member-card .role { color: var(--blue); font-size: 14.5px; font-weight: 700; margin: 2px 0 0; text-transform: uppercase; letter-spacing: .04em; }
 
-  .partners {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .partner-box {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 40px;
-    text-align: center;
-  }
-  .partner-box h3 { font-size: 20px; }
-  .partner-box img.badge {
-    object-fit: cover;
-    border: 3px solid var(--border);
-  }
+  /* partners */
+  .partners { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .partner-box { background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 34px 30px; text-align: center; }
+  .partner-box h3 { font-size: 19px; }
+  .partner-box p { color: var(--ink-soft); font-size: 15.5px; }
   .partner-box .badge {
-    display: flex;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    font-family: 'Lora', Georgia, serif;
-    font-size: 14px;
-    line-height: 1.3;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 18px;
+    display: flex; width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--ink); margin: 0 auto 18px;
   }
 
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    counter-reset: step;
+  /* four steps */
+  .spread {
+    display: flex; border: 2px solid var(--ink); background: var(--grain), var(--paper-2);
   }
-  .step {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-  }
-  .step .num {
-    display: inline-flex;
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    align-items: center; justify-content: center;
-    font-weight: 600;
-    margin-bottom: 10px;
-    counter-increment: step;
-  }
-  .step .num::before { content: counter(step); }
-  .step h3 { font-size: 17px; }
-  .step p { font-size: 16px; color: var(--text-soft); margin: 0; }
+  .folio { flex: 1; padding: 22px 20px; border-right: 1px solid var(--border-strong); }
+  .folio:last-child { border-right: none; }
+  .folio h3 { font-size: 17px; margin: 0 0 6px; }
+  .folio p { font-size: 15px; color: var(--ink-soft); margin: 0; }
 
   .involved-cta {
-    margin-top: 36px;
-    background: var(--accent-bg);
-    color: var(--primary-dark);
-    border-radius: 16px;
-    padding: 36px;
-    text-align: center;
+    margin-top: 32px; background: var(--red); color: var(--paper-2);
+    border: 2px solid var(--ink); padding: 34px; text-align: center;
   }
-  .involved-cta h3 { color: var(--primary-dark); font-size: 24px; }
-  .involved-cta p { color: var(--text-soft); font-size: 18px; }
-  .involved-cta .hero-actions { margin-top: 18px; }
+  .involved-cta h3 { color: var(--paper-2); font-size: 23px; }
+  .involved-cta p { color: var(--paper-2); font-size: 17px; opacity: .92; }
+  .involved-cta .hero-actions { margin-top: 18px; justify-content: center; }
+  .involved-cta .btn.solid-red { background: var(--paper-2); color: var(--red); border-color: var(--paper-2); }
+  .involved-cta .btn.solid-red:hover { background: var(--ink); color: var(--paper-2); border-color: var(--ink); }
 
   footer {
-    background: var(--accent-bg);
-    color: var(--primary-dark);
-    padding: 44px 0 24px;
-    font-size: 16px;
+    background: var(--grain), var(--paper-2); color: var(--ink); border-top: 4px solid var(--ink);
+    padding: 44px 0 24px; font-size: 15.5px;
   }
-  .foot-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
-    gap: 32px;
-  }
-  footer h4 { color: var(--primary-dark); font-size: 16px; margin-bottom: 12px; font-family: 'Lora', Georgia, serif; }
+  .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 32px; }
+  footer .wordmark { display: inline-block; margin-bottom: 12px; }
+  footer h4 { font-family: 'Zilla Slab', serif; color: var(--ink); font-size: 15px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .04em; }
   footer ul { list-style: none; padding: 0; margin: 0; }
   footer li { margin-bottom: 8px; }
-  footer a { color: var(--primary-dark); }
-  footer a:hover { color: var(--accent); }
+  footer a { color: var(--ink); }
+  footer a:hover { color: var(--red); }
   .foot-bottom {
-    margin-top: 30px;
-    border-top: 1px solid rgba(18,63,79,.2);
-    padding-top: 18px;
-    text-align: center;
-    font-size: 15px;
+    margin-top: 30px; border-top: 1px solid var(--border-strong); padding-top: 18px;
+    text-align: center; font-size: 14px; color: var(--ink-soft);
   }
 
   @media (max-width: 760px) {
     .pillars, .foot-grid, .partners { grid-template-columns: 1fr; }
-    .steps, .gallery, .members { grid-template-columns: 1fr 1fr; }
+    .gallery, .members { grid-template-columns: 1fr 1fr; }
+    .spread { flex-direction: column; }
+    .folio { border-right: none; border-bottom: 1px solid var(--border-strong); }
+    .folio:last-child { border-bottom: none; }
     table.programs th { width: auto; }
+    .hero .blob.red, .hero .blob.blue { width: 70vw; height: 70vw; }
 
-    .topbar .wrap { flex-wrap: wrap; }
+    .masthead .wrap { flex-wrap: wrap; }
     .nav-toggle-btn { display: inline-block; }
     nav.links { display: none; width: 100%; }
     nav.links.open { display: block; }
-    nav.links ul {
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 14px;
-      padding: 16px 0 6px;
-    }
+    nav.links ul { flex-direction: column; align-items: flex-start; gap: 14px; padding: 14px 0 4px; }
   }
   @media (max-width: 480px) {
-    .steps, .gallery, .members { grid-template-columns: 1fr; }
+    .gallery, .members { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -467,10 +328,12 @@
 </head>
 <body>
 
-<div class="topbar">
+<div class="masthead">
   <div class="wrap">
+    <a href="#top" class="wordmark">Generational<span>.</span>Club</a>
     <button type="button" class="nav-toggle-btn" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
-      <span aria-hidden="true">&#9776;</span>
+      <svg class="icon-menu" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
     <nav class="links" id="primaryNav">
       <ul>
@@ -484,23 +347,18 @@
     </nav>
   </div>
 </div>
-<header>
-  <div class="wrap">
-    <a href="#top" class="logo">Generational Club</a>
-    <p class="tagline">Marriotts Ridge High School</p>
-    <div class="craft-accent" aria-hidden="true">&#127912; &#9986;&#65039; &#129441;</div>
-  </div>
-</header>
 
 <main id="top">
 
   <section class="hero">
+    <div class="blob red" aria-hidden="true"></div>
+    <div class="blob blue" aria-hidden="true"></div>
     <div class="wrap">
       <h1>Creativity and connection, one visit at a time.</h1>
       <p class="lead">The Generational Club is a student-run volunteer group at Marriotts Ridge High School. Every month, our members visit local senior living homes to lead craft and painting activities designed to bring joy to residents living with dementia and help maintain fine motor skills. We're proud to partner with the Howard County Department of Aging.</p>
       <div class="hero-actions">
-        <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn" target="_blank" rel="noopener">Become a Volunteer</a>
-        <a href="#mission" class="btn btn-alt">See How It Works</a>
+        <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn solid-red" target="_blank" rel="noopener">Become a Volunteer</a>
+        <a href="#mission" class="btn outline-blue">See How It Works</a>
       </div>
     </div>
   </section>
@@ -515,22 +373,22 @@
   <section id="mission">
     <div class="wrap">
       <div class="section-head">
-        <h2><span aria-hidden="true">&#127912;</span> Why We Visit</h2>
+        <h2>Why We Visit</h2>
         <p>Isolation and the loss of fine motor skills are common challenges for older adults living with dementia. The Generational Club exists to bring color, company, and gentle hands-on activity into their week &mdash; one craft table at a time.</p>
       </div>
       <div class="pillars">
         <div class="pillar">
-          <div class="icon" aria-hidden="true">&#128172;</div>
+          <span class="ink-mark red" aria-hidden="true"></span>
           <h3>Connection</h3>
           <p>Real conversation and company while creating something together, one small table at a time.</p>
         </div>
         <div class="pillar">
-          <div class="icon" aria-hidden="true">&#127912;</div>
+          <span class="ink-mark blue" aria-hidden="true"></span>
           <h3>Creativity</h3>
           <p>Guided painting and craft projects designed to be simple, calming, and enjoyable at any skill level.</p>
         </div>
         <div class="pillar">
-          <div class="icon" aria-hidden="true">&#10084;&#65039;</div>
+          <span class="ink-mark red" aria-hidden="true"></span>
           <h3>Care</h3>
           <p>Activities are chosen with dementia-aware training and support fine motor skills, memory, and mood.</p>
         </div>
@@ -538,30 +396,30 @@
     </div>
   </section>
 
-  <section id="activities" style="background:var(--bg-alt);">
+  <section id="activities" class="section-alt">
     <div class="wrap">
       <div class="section-head">
-        <h2><span aria-hidden="true">&#9986;&#65039;</span> What We Do</h2>
+        <h2>What We Do</h2>
         <p>Every visit is planned around what residents enjoy and what facility staff recommend.</p>
       </div>
       <table class="programs">
         <tr>
-          <th scope="row">Craft &amp; Painting Sessions</th>
+          <th scope="row"><span class="ink-mark red inline" aria-hidden="true"></span>Craft &amp; Painting Sessions</th>
           <td>Regular visits to local senior living homes where members lead simple, guided art projects &mdash; no experience needed, for volunteers or residents.</td>
         </tr>
         <tr>
-          <th scope="row">Motor Skills Workshops</th>
+          <th scope="row"><span class="ink-mark blue inline" aria-hidden="true"></span>Motor Skills Workshops</th>
           <td>Hands-on activities like painting, beading, and paper crafts, chosen to help residents maintain fine motor skills and hand-eye coordination.</td>
         </tr>
         <tr>
-          <th scope="row">Facility Partnerships</th>
+          <th scope="row"><span class="ink-mark red inline" aria-hidden="true"></span>Facility Partnerships</th>
           <td>We coordinate directly with facility staff and the Howard County Department of Aging to plan activities that are safe, welcoming, and dementia-friendly.</td>
         </tr>
       </table>
     </div>
   </section>
 
-  <section id="photos" style="background:var(--panel);">
+  <section id="photos">
     <div class="wrap">
       <div class="section-head">
         <h2>Photos</h2>
@@ -569,160 +427,160 @@
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Volunteer Visits</h3>
+        <span class="gallery-group-title">Volunteer Visits</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/image11.jpeg" alt="Club members smiling together during a visit" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image11.jpeg" alt="Club members smiling together during a visit" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-12.jpeg" alt="A resident and volunteer stringing a beaded bracelet together" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-12.jpeg" alt="A resident and volunteer stringing a beaded bracelet together" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-13.jpeg" alt="A volunteer restringing beads at the craft table" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-13.jpeg" alt="A volunteer restringing beads at the craft table" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-18.jpeg" alt="Residents and volunteers painting fabric drawstring bags together" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-18.jpeg" alt="Residents and volunteers painting fabric drawstring bags together" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Painted Drawstring Bags</h3>
+        <span class="gallery-group-title">Painted Drawstring Bags</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/image2.jpeg" alt="Hand-painted drawstring bag with a rose design" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image2.jpeg" alt="Hand-painted drawstring bag with a rose design" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image3.jpeg" alt="Hand-painted drawstring bag with roses and leaves" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image3.jpeg" alt="Hand-painted drawstring bag with roses and leaves" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image4.jpeg" alt="Hand-painted drawstring bag with floral and heart designs" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image4.jpeg" alt="Hand-painted drawstring bag with floral and heart designs" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image5.jpeg" alt="Hand-painted drawstring bag with a stenciled quote: 'In a field of roses, be a wildflower'" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image5.jpeg" alt="Hand-painted drawstring bag with a stenciled quote: 'In a field of roses, be a wildflower'" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image6.jpeg" alt="Hand-painted drawstring bag with a lotus flower design" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image6.jpeg" alt="Hand-painted drawstring bag with a lotus flower design" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image7.jpeg" alt="Hand-painted drawstring bag with glitter flowers" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image7.jpeg" alt="Hand-painted drawstring bag with glitter flowers" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image8.jpeg" alt="Hand-painted drawstring bag with a glittered flower design" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image8.jpeg" alt="Hand-painted drawstring bag with a glittered flower design" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image9.jpeg" alt="Personalized drawstring bag reading 'Gloria' with a glitter heart" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image9.jpeg" alt="Personalized drawstring bag reading 'Gloria' with a glitter heart" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image10.jpeg" alt="Hand-painted drawstring bag with a leaf design" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image10.jpeg" alt="Hand-painted drawstring bag with a leaf design" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Canvas Paintings</h3>
+        <span class="gallery-group-title">Canvas Paintings</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/image12.jpeg" alt="Glitter floral canvas painting from a craft session" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image12.jpeg" alt="Glitter floral canvas painting from a craft session" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image13.jpeg" alt="Colorful pinwheel canvas painting" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image13.jpeg" alt="Colorful pinwheel canvas painting" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image14.jpeg" alt="Canvas painting of a cottage surrounded by flowers" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image14.jpeg" alt="Canvas painting of a cottage surrounded by flowers" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Beaded Jewelry</h3>
+        <span class="gallery-group-title">Beaded Jewelry</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/craft-0.jpeg" alt="Collection of colorful handmade beaded bracelets" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-0.jpeg" alt="Collection of colorful handmade beaded bracelets" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-8.jpeg" alt="Colorful pony-bead bracelets shaped into letters" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-8.jpeg" alt="Colorful pony-bead bracelets shaped into letters" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-9.jpeg" alt="Long beaded necklace in red, yellow, green, and blue" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-9.jpeg" alt="Long beaded necklace in red, yellow, green, and blue" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-10.jpeg" alt="Beaded bracelet with a smiley-face wood bead" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-10.jpeg" alt="Beaded bracelet with a smiley-face wood bead" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-11.jpeg" alt="Orange and white beaded bracelet" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-11.jpeg" alt="Orange and white beaded bracelet" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-14.jpeg" alt="Green, pink, purple, and yellow beaded bracelet" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-14.jpeg" alt="Green, pink, purple, and yellow beaded bracelet" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Memory Collages &amp; Mixed Media</h3>
+        <span class="gallery-group-title">Memory Collages &amp; Mixed Media</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/image000.jpeg" alt="Personalized memory collage made for a resident" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image000.jpeg" alt="Personalized memory collage made for a resident" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/image100.jpeg" alt="Personalized memory collage with nature and travel images" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/image100.jpeg" alt="Personalized memory collage with nature and travel images" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-3.jpeg" alt="Magazine collage artwork with a bird, a castle, a beaded bracelet, and a Maryland flag" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-3.jpeg" alt="Magazine collage artwork with a bird, a castle, a beaded bracelet, and a Maryland flag" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-4.jpeg" alt="Magazine collage titled &quot;Light in the Darkness&quot; with underwater ocean imagery" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-4.jpeg" alt="Magazine collage titled &quot;Light in the Darkness&quot; with underwater ocean imagery" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-5.jpeg" alt="Magazine collage of space and abstract imagery" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-5.jpeg" alt="Magazine collage of space and abstract imagery" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-6.jpeg" alt="Magazine collage with a butterfly, flowers, and a puppy" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-6.jpeg" alt="Magazine collage with a butterfly, flowers, and a puppy" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Seasonal &amp; Handmade Crafts</h3>
+        <span class="gallery-group-title">Seasonal &amp; Handmade Crafts</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/craft-7.jpeg" alt="Bouquet of handmade pipe-cleaner flowers" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-7.jpeg" alt="Bouquet of handmade pipe-cleaner flowers" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-15.jpeg" alt="Felt heart craft with a gingham bow reading &quot;Happy Valentine's Day!&quot;" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-15.jpeg" alt="Felt heart craft with a gingham bow reading &quot;Happy Valentine's Day!&quot;" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-16.jpeg" alt="White felt heart craft decorated with ribbon and hearts" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-16.jpeg" alt="White felt heart craft decorated with ribbon and hearts" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-17.jpeg" alt="Hand-decorated wooden holiday ornaments shaped like stars, angels, and snowflakes" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-17.jpeg" alt="Hand-decorated wooden holiday ornaments shaped like stars, angels, and snowflakes" class="frame"></div>
           </figure>
         </div>
       </div>
 
       <div class="gallery-group">
-        <h3 class="gallery-group-title">Fundraising &amp; Bake Sales</h3>
+        <span class="gallery-group-title">Fundraising &amp; Bake Sales</span>
         <div class="gallery">
           <figure class="photo-tile">
-            <img src="photos/craft-1.jpeg" alt="Poster board for a Generational Club bake sale fundraiser, with photos of past craft activities and a donation meter benefiting the Alzheimer's Association" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-1.jpeg" alt="Poster board for a Generational Club bake sale fundraiser, with photos of past craft activities and a donation meter benefiting the Alzheimer's Association" class="frame"></div>
           </figure>
           <figure class="photo-tile">
-            <img src="photos/craft-2.jpeg" alt="Hand-drawn flyers advertising a Generational Club bake sale" class="frame">
+            <div class="frame-wrap"><span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span><img src="photos/craft-2.jpeg" alt="Hand-drawn flyers advertising a Generational Club bake sale" class="frame"></div>
           </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="members" style="background:var(--bg-alt);">
+  <section id="members" class="section-alt">
     <div class="wrap">
       <div class="section-head">
-        <h2><span aria-hidden="true">&#129441;</span> Meet the Club</h2>
+        <h2>Meet the Club</h2>
         <p>The Marriotts Ridge student behind the Generational Club. More officer profiles will be added here as the club grows.</p>
       </div>
       <div class="members">
         <div class="member-card">
-          <div class="avatar" aria-hidden="true">&#128100;</div>
+          <div class="avatar" aria-hidden="true">KR</div>
           <div class="name">Kate Rim</div>
           <div class="role">President</div>
         </div>
@@ -756,29 +614,29 @@
     </div>
   </section>
 
-  <section id="involved">
+  <section id="involved" class="section-alt no-bottom-border">
     <div class="wrap">
       <div class="section-head">
         <h2>Four Steps to Your First Visit</h2>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="num"></div>
+      <div class="spread">
+        <div class="folio">
+          <span class="folio-badge red">1</span>
           <h3>Apply</h3>
           <p>A short form about yourself.</p>
         </div>
-        <div class="step">
-          <div class="num"></div>
+        <div class="folio">
+          <span class="folio-badge blue">2</span>
           <h3>Train</h3>
           <p>A short orientation on dementia-aware engagement, co-led with the Howard County Department of Aging.</p>
         </div>
-        <div class="step">
-          <div class="num"></div>
+        <div class="folio">
+          <span class="folio-badge red">3</span>
           <h3>Get Matched</h3>
           <p>Paired with a facility visit team based on your availability.</p>
         </div>
-        <div class="step">
-          <div class="num"></div>
+        <div class="folio">
+          <span class="folio-badge blue">4</span>
           <h3>Start Visiting</h3>
           <p>Show up, create, and connect &mdash; no art experience required.</p>
         </div>
@@ -787,7 +645,7 @@
         <h3>One hour of your time makes more of a difference than you'd think.</h3>
         <p>No art experience needed &mdash; just a willingness to show up and create alongside our neighbors.</p>
         <div class="hero-actions">
-          <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn" target="_blank" rel="noopener">Apply to Volunteer</a>
+          <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn solid-red" target="_blank" rel="noopener">Apply to Volunteer</a>
         </div>
       </div>
     </div>
@@ -796,11 +654,20 @@
 </main>
 
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo viewer">
-  <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&#10005;</button>
-  <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
-  <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+  <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close photo viewer">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous photo">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"/></svg>
+  </button>
+  <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next photo">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+  </button>
   <div class="lightbox-inner">
-    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-media">
+      <img id="lightboxImg" src="" alt="">
+      <span class="halftone" aria-hidden="true"></span>
+    </div>
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
 </div>
@@ -809,7 +676,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo" style="margin-bottom:12px; display:block;">Generational Club</div>
+        <a href="#top" class="wordmark">Generational<span style="color:var(--red)">.</span>Club</a>
         <p>A Marriotts Ridge High School volunteer club bringing craft and painting activities to local senior living homes, one visit at a time.</p>
       </div>
       <div>
@@ -850,13 +717,11 @@
   (function () {
     var btn = document.getElementById('navToggle');
     var nav = document.getElementById('primaryNav');
-    var icon = btn ? btn.querySelector('span') : null;
     if (!btn || !nav) return;
 
     function setOpen(isOpen) {
       nav.classList.toggle('open', isOpen);
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if (icon) icon.innerHTML = isOpen ? '&#10005;' : '&#9776;';
     }
 
     btn.addEventListener('click', function () {
