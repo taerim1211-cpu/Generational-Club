@@ -21,6 +21,7 @@
     --accent: #A6431E;
     --accent-dark: #832F11;
     --focus: #F0A93E;
+    --accent-bg: #D6ECE9;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -47,7 +48,7 @@
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
   .topbar {
-    background: #bbf1f1;
+    background: var(--accent-bg);
     color: var(--primary-dark);
     padding: 10px 0;
     border-bottom: 1px solid rgba(18,63,79,.15);
@@ -58,7 +59,7 @@
     max-width: none;
   }
   header {
-    background: #bbf1f1;
+    background: var(--accent-bg);
     color: var(--primary-dark);
     padding: 40px 0 32px;
     text-align: center;
@@ -86,7 +87,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #008080;
+    color: var(--primary-dark);
   }
   nav.links ul {
     list-style: none;
@@ -160,6 +161,7 @@
     font-size: 17px;
     color: var(--text-soft);
   }
+  .trust .wrap { max-width: 700px; }
   .trust b { color: var(--primary-dark); }
 
   section { padding: 56px 0; }
@@ -208,6 +210,16 @@
     width: 30%;
   }
 
+  .gallery-group {
+    margin-bottom: 40px;
+  }
+  .gallery-group:last-child { margin-bottom: 0; }
+  .gallery-group-title {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--primary-dark);
+    font-size: 20px;
+    margin: 0 0 16px;
+  }
   .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -305,7 +317,8 @@
 
   .members {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
+    justify-content: center;
     gap: 24px;
   }
   .member-card {
@@ -364,21 +377,6 @@
     margin: 0 auto 18px;
   }
 
-  .quotes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .quote-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-left: 6px solid var(--primary);
-    border-radius: 8px;
-    padding: 26px;
-    font-size: 18px;
-  }
-  .quote-card p.who { color: var(--text-soft); font-size: 16px; margin-top: 14px; margin-bottom: 0; }
-
   .steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -409,7 +407,7 @@
 
   .involved-cta {
     margin-top: 36px;
-    background: #bbf1f1;
+    background: var(--accent-bg);
     color: var(--primary-dark);
     border-radius: 16px;
     padding: 36px;
@@ -420,7 +418,7 @@
   .involved-cta .hero-actions { margin-top: 18px; }
 
   footer {
-    background: #bbf1f1;
+    background: var(--accent-bg);
     color: var(--primary-dark);
     padding: 44px 0 24px;
     font-size: 16px;
@@ -444,7 +442,7 @@
   }
 
   @media (max-width: 760px) {
-    .pillars, .quotes, .foot-grid, .partners { grid-template-columns: 1fr; }
+    .pillars, .foot-grid, .partners { grid-template-columns: 1fr; }
     .steps, .gallery, .members { grid-template-columns: 1fr 1fr; }
     table.programs th { width: auto; }
 
@@ -480,7 +478,7 @@
         <li><a href="#activities">Activities</a></li>
         <li><a href="#photos">Photos</a></li>
         <li><a href="#members">Members</a></li>
-        <li><a href="#partnership">Partnership</a></li>
+        <li><a href="#partnership">Partners</a></li>
         <li><a href="#involved">Get Involved</a></li>
       </ul>
     </nav>
@@ -567,115 +565,151 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Photos</h2>
-        <p>A look at our craft sessions, painting days, and trainings. Swap these placeholders for your own club photos as you take them.</p>
+        <p>A look at our craft sessions, painting days, and trainings, organized by activity below.</p>
       </div>
-      <!-- Replace each .frame div below with an <img src="photos/your-file.jpg" alt="..."> once you have real photos -->
-      <div class="gallery">
-        <figure class="photo-tile">
-          <img src="photos/IMG_8853.jpeg" alt="Generational Club volunteers with residents during a craft session" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image11.jpeg" alt="Club members smiling together during a visit" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image2.jpeg" alt="Hand-painted drawstring bag with a rose design" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image3.jpeg" alt="Hand-painted drawstring bag with roses and leaves" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image4.jpeg" alt="Hand-painted drawstring bag with floral and heart designs" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image5.jpeg" alt="Hand-painted drawstring bag with a stenciled quote" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image6.jpeg" alt="Hand-painted drawstring bag with a lotus flower design" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image7.jpeg" alt="Hand-painted drawstring bag with glitter flowers" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image8.jpeg" alt="Hand-painted drawstring bag with a glittered flower design" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image9.jpeg" alt="Personalized drawstring bag with a glitter heart" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image10.jpeg" alt="Hand-painted drawstring bag with a leaf design" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image12.jpeg" alt="Glitter floral canvas painting from a craft session" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image13.jpeg" alt="Colorful pinwheel canvas painting" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image14.jpeg" alt="Canvas painting of a cottage surrounded by flowers" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image000.jpeg" alt="Personalized memory collage made for a resident" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/image100.jpeg" alt="Personalized memory collage with nature and travel images" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-0.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-1.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-2.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-3.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-4.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-5.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-6.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-7.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-8.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-9.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-10.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-11.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-12.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-13.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-14.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-15.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-16.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-17.jpeg" alt="Craft session photo" class="frame">
-        </figure>
-        <figure class="photo-tile">
-          <img src="photos/craft-18.jpeg" alt="Craft session photo" class="frame">
-        </figure>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Volunteer Visits</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/image11.jpeg" alt="Club members smiling together during a visit" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-12.jpeg" alt="A resident and volunteer stringing a beaded bracelet together" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-13.jpeg" alt="A volunteer restringing beads at the craft table" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-18.jpeg" alt="Residents and volunteers painting fabric drawstring bags together" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Painted Drawstring Bags</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/image2.jpeg" alt="Hand-painted drawstring bag with a rose design" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image3.jpeg" alt="Hand-painted drawstring bag with roses and leaves" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image4.jpeg" alt="Hand-painted drawstring bag with floral and heart designs" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image5.jpeg" alt="Hand-painted drawstring bag with a stenciled quote: 'In a field of roses, be a wildflower'" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image6.jpeg" alt="Hand-painted drawstring bag with a lotus flower design" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image7.jpeg" alt="Hand-painted drawstring bag with glitter flowers" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image8.jpeg" alt="Hand-painted drawstring bag with a glittered flower design" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image9.jpeg" alt="Personalized drawstring bag reading 'Gloria' with a glitter heart" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image10.jpeg" alt="Hand-painted drawstring bag with a leaf design" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Canvas Paintings</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/image12.jpeg" alt="Glitter floral canvas painting from a craft session" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image13.jpeg" alt="Colorful pinwheel canvas painting" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image14.jpeg" alt="Canvas painting of a cottage surrounded by flowers" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Beaded Jewelry</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/craft-0.jpeg" alt="Collection of colorful handmade beaded bracelets" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-8.jpeg" alt="Colorful pony-bead bracelets shaped into letters" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-9.jpeg" alt="Long beaded necklace in red, yellow, green, and blue" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-10.jpeg" alt="Beaded bracelet with a smiley-face wood bead" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-11.jpeg" alt="Orange and white beaded bracelet" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-14.jpeg" alt="Green, pink, purple, and yellow beaded bracelet" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Memory Collages &amp; Mixed Media</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/image000.jpeg" alt="Personalized memory collage made for a resident" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/image100.jpeg" alt="Personalized memory collage with nature and travel images" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-3.jpeg" alt="Magazine collage artwork with a bird, a castle, a beaded bracelet, and a Maryland flag" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-4.jpeg" alt="Magazine collage titled &quot;Light in the Darkness&quot; with underwater ocean imagery" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-5.jpeg" alt="Magazine collage of space and abstract imagery" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-6.jpeg" alt="Magazine collage with a butterfly, flowers, and a puppy" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Seasonal &amp; Handmade Crafts</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/craft-7.jpeg" alt="Bouquet of handmade pipe-cleaner flowers" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-15.jpeg" alt="Felt heart craft with a gingham bow reading &quot;Happy Valentine's Day!&quot;" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-16.jpeg" alt="White felt heart craft decorated with ribbon and hearts" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-17.jpeg" alt="Hand-decorated wooden holiday ornaments shaped like stars, angels, and snowflakes" class="frame">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-group">
+        <h3 class="gallery-group-title">Fundraising &amp; Bake Sales</h3>
+        <div class="gallery">
+          <figure class="photo-tile">
+            <img src="photos/craft-1.jpeg" alt="Poster board for a Generational Club bake sale fundraiser, with photos of past craft activities and a donation meter benefiting the Alzheimer's Association" class="frame">
+          </figure>
+          <figure class="photo-tile">
+            <img src="photos/craft-2.jpeg" alt="Hand-drawn flyers advertising a Generational Club bake sale" class="frame">
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -684,25 +718,14 @@
     <div class="wrap">
       <div class="section-head">
         <h2><span aria-hidden="true">&#129441;</span> Meet the Club</h2>
-        <p>The Marriotts Ridge students who organize visits, lead trainings, and keep the Generational Club going. Replace these placeholders with your own club officers and members.</p>
+        <p>The Marriotts Ridge student behind the Generational Club. More officer profiles will be added here as the club grows.</p>
       </div>
       <div class="members">
         <div class="member-card">
           <div class="avatar" aria-hidden="true">&#128100;</div>
           <div class="name">Kate Rim</div>
-          <div class="role">President</div>        </div>
-        <div class="member-card">
-          <div class="avatar" aria-hidden="true">&#128100;</div>
-          <div class="name">Your Name Here</div>
-          <div class="role">Vice President</div>        </div>
-        <div class="member-card">
-          <div class="avatar" aria-hidden="true">&#128100;</div>
-          <div class="name">Your Name Here</div>
-          <div class="role">Volunteer Coordinator</div>        </div>
-        <div class="member-card">
-          <div class="avatar" aria-hidden="true">&#128100;</div>
-          <div class="name">Your Name Here</div>
-          <div class="role">Secretary / Treasurer</div>        </div>
+          <div class="role">President</div>
+        </div>
       </div>
     </div>
   </section>
@@ -728,25 +751,6 @@
           <img src="photos/WGSenior.jpg" alt="Winter Growth Assisted Living Center" class="badge">
           <h3>Winter Growth Assisted Living Center</h3>
           <p>Another senior living community our members regularly visit for craft and painting sessions with residents.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--bg-alt);">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>In Their Words</h2>
-        <p>Placeholder testimonials &mdash; replace with real quotes from residents, volunteers, or facility staff.</p>
-      </div>
-      <div class="quotes">
-        <div class="quote-card">
-          "Add a quote from a resident, volunteer, or facility staff member here."
-          <p class="who">&mdash; Name Here, resident</p>
-        </div>
-        <div class="quote-card">
-          "Add a quote from a resident, volunteer, or facility staff member here."
-          <p class="who">&mdash; Name Here, volunteer</p>
         </div>
       </div>
     </div>
@@ -813,14 +817,14 @@
         <ul>
           <li><a href="#mission">Our Mission</a></li>
           <li><a href="#activities">What We Do</a></li>
-          <li><a href="#partnership">Partnership</a></li>
+          <li><a href="#partnership">Partners</a></li>
         </ul>
       </div>
       <div>
         <h4>Get Involved</h4>
         <ul>
           <li><a href="https://forms.gle/5sF4PpLr4Xow4tf97" target="_blank" rel="noopener">Become a Volunteer</a></li>
-          <li><a href="#involved">Refer a Facility</a></li>
+          <li><a href="mailto:generationalclub@gmail.com?subject=Facility%20Referral">Refer a Facility</a></li>
         </ul>
       </div>
       <div>
@@ -832,12 +836,17 @@
       </div>
     </div>
     <div class="foot-bottom">
-      &copy; 2026 Generational Club &mdash; Marriotts Ridge High School. generationalclub@gmail.com
+      &copy; <span id="copyYear">2026</span> Generational Club &mdash; Marriotts Ridge High School. generationalclub@gmail.com
     </div>
   </div>
 </footer>
 
 <script>
+  (function () {
+    var yearEl = document.getElementById('copyYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+
   (function () {
     var btn = document.getElementById('navToggle');
     var nav = document.getElementById('primaryNav');
