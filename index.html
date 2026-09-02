@@ -6,7 +6,7 @@
   THESIS: A community craft club proven through its own two-ink print run, not a nonprofit template — a small zine about real visits, not a pitch for imagined ones.
   OWN-WORLD: Warm uncoated paper (#F3ECD9/#FBF3E0), two riso spot inks — flame red and federal blue — multiplying at overlaps, fine halftone grain, hairline registration marks on photo frames. Zilla Slab for headlines, Public Sans for body (a callback to the prior site).
   STORY: A visitor — teen or parent/facility staff — understands within seconds this is a real, currently-running, institutionally-backed program; believes it is organized and dementia-aware; acts by applying to volunteer.
-  FIRST VIEWPORT: Sticky paper masthead nav, then a hero on paper ground with overlapping red/blue ink blobs upper-right, eyebrow + headline + lead + two CTAs (solid red primary, outline blue secondary) left-aligned.
+  FIRST VIEWPORT: Sticky paper masthead nav, then a hero on paper ground with a real photo in a slightly-rotated, ink-bordered "tipped-in" card (registration marks, halftone overlay) on the left, headline + lead + two CTAs (solid red primary, outline blue secondary) on the right. Updated from an earlier abstract red/blue ink-blob hero after the user chose a real-photo direction over 4 hero mockups.
   FORM: Riso ("risograph-web-system" catalog challenger, fused with this club's real facts), chosen by the user from 4 presented directions after a direction-level roll; seed key b50dab3f.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md.
 -->
@@ -100,16 +100,20 @@
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
   /* hero */
-  .hero { position: relative; overflow: hidden; padding: 54px 0 46px; }
-  .hero .blob {
-    position: absolute; border-radius: 46% 54% 55% 45% / 50% 45% 55% 50%;
-    mix-blend-mode: multiply; pointer-events: none;
+  .hero { padding: 54px 0 46px; }
+  .hero-row { display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
+  .hero-photo-card {
+    width: 260px; flex-shrink: 0; background: var(--grain), var(--paper-2);
+    border: 2px solid var(--ink); padding: 10px 10px 16px; transform: rotate(-2.5deg);
   }
-  .hero .blob.red { background: var(--red-bright); width: 46vw; max-width: 480px; height: 46vw; max-height: 480px; top: -18%; right: -8%; opacity: .9; }
-  .hero .blob.blue { background: var(--blue-bright); width: 38vw; max-width: 400px; height: 38vw; max-height: 400px; top: -6%; right: 14%; opacity: .85; }
-  .hero .wrap { position: relative; z-index: 1; }
-  .hero h1 { font-size: clamp(32px, 4.6vw, 50px); max-width: 15ch; margin-top: 0; }
-  .hero p.lead { max-width: 46ch; margin: 18px 0 28px; color: var(--ink-soft); font-size: 19px; }
+  .hero-photo-card .photo-tile { margin: 0; }
+  .hero-photo-card .frame { cursor: default; }
+  .hero-photo-caption {
+    margin: 10px 0 0; text-align: center; font-size: 14px; color: var(--ink-soft); font-style: italic;
+  }
+  .hero-copy { flex: 1; min-width: 280px; }
+  .hero-copy h1 { font-size: clamp(32px, 4.6vw, 50px); max-width: 15ch; margin-top: 0; }
+  .hero-copy p.lead { max-width: 46ch; margin: 18px 0 28px; color: var(--ink-soft); font-size: 19px; }
 
   /* trust strip */
   .trust {
@@ -310,7 +314,8 @@
     .folio { border-right: none; border-bottom: 1px solid var(--border-strong); }
     .folio:last-child { border-bottom: none; }
     table.programs th { width: auto; }
-    .hero .blob.red, .hero .blob.blue { width: 70vw; height: 70vw; }
+    .hero-row { flex-direction: column; align-items: flex-start; }
+    .hero-photo-card { align-self: center; }
 
     .masthead .wrap { flex-wrap: wrap; }
     .nav-toggle-btn { display: inline-block; }
@@ -351,14 +356,23 @@
 <main id="top">
 
   <section class="hero">
-    <div class="blob red" aria-hidden="true"></div>
-    <div class="blob blue" aria-hidden="true"></div>
-    <div class="wrap">
-      <h1>Creativity and connection, one visit at a time.</h1>
-      <p class="lead">The Generational Club is a student-run volunteer group at Marriotts Ridge High School. Every month, our members visit local senior living homes to lead craft and painting activities designed to bring joy to residents living with dementia and help maintain fine motor skills. We're proud to partner with the Howard County Department of Aging.</p>
-      <div class="hero-actions">
-        <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn solid-red" target="_blank" rel="noopener">Become a Volunteer</a>
-        <a href="#mission" class="btn outline-blue">See How It Works</a>
+    <div class="wrap hero-row">
+      <div class="hero-photo-card">
+        <figure class="photo-tile">
+          <div class="frame-wrap">
+            <span class="reg-mark" aria-hidden="true"></span><span class="reg-mark br" aria-hidden="true"></span><span class="halftone" aria-hidden="true"></span>
+            <img src="photos/image11.jpeg" alt="Club members smiling together during a visit" class="frame">
+          </div>
+        </figure>
+        <p class="hero-photo-caption">Club members, craft day</p>
+      </div>
+      <div class="hero-copy">
+        <h1>Creativity and connection, one visit at a time.</h1>
+        <p class="lead">The Generational Club is a student-run volunteer group at Marriotts Ridge High School. Every month, our members visit local senior living homes to lead craft and painting activities designed to bring joy to residents living with dementia and help maintain fine motor skills. We're proud to partner with the Howard County Department of Aging.</p>
+        <div class="hero-actions">
+          <a href="https://forms.gle/5sF4PpLr4Xow4tf97" class="btn solid-red" target="_blank" rel="noopener">Become a Volunteer</a>
+          <a href="#mission" class="btn outline-blue">See How It Works</a>
+        </div>
       </div>
     </div>
   </section>

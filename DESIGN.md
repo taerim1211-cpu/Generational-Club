@@ -52,7 +52,7 @@ components:
 
 **Creative North Star: "The Two-Ink Print Run"**
 
-The site presents itself as a small risograph-printed zine about a real, currently-running teen volunteer club, not a nonprofit-template landing page. Two spot inks — a flame red and a federal blue — carry every accent, CTA, and category marker in the system; they multiply into a darker third tone wherever they physically overlap (the hero's ink blobs), exactly as a real two-pass riso print would. A fine halftone-dot grain sits under every paper surface and over every photograph, so the site reads as printed material rather than rendered UI. The system is deliberately plain-spoken rather than precious: square corners, solid ink borders instead of shadows, and real craft-session photography doing the persuading rather than illustration or stock imagery.
+The site presents itself as a small risograph-printed zine about a real, currently-running teen volunteer club, not a nonprofit-template landing page. Two spot inks — a flame red and a federal blue — carry every accent, CTA, and category marker in the system, rendered with `mix-blend-mode: multiply` wherever they sit over paper or a photograph, exactly as a real two-pass riso print would. A fine halftone-dot grain sits under every paper surface and over every photograph, so the site reads as printed material rather than rendered UI. The system is deliberately plain-spoken rather than precious: square corners, solid ink borders instead of shadows, real photography (never illustration or stock imagery) presented as slightly-rotated, registration-marked "tipped-in" print cards where a single photo needs to carry a moment (the hero) and as bordered gallery tiles elsewhere.
 
 The build explicitly rejects two adjacent failure modes: it is not the cream-background/rounded-card/stock-photo default that most "volunteer nonprofit" sites converge on, and it does not tip into a stylish "indie design studio" look that would read as more agency than teen club. Numbered sequence badges are reserved for the one genuinely ordered process on the site (the four-step join flow); parallel or categorical content never borrows that numbering, because a previous pass over-applied it and implied an order that didn't exist.
 
@@ -69,11 +69,11 @@ Two spot inks plus a warm paper neutral family; both inks carry a text-safe (dar
 
 ### Primary
 - **Riso Flame Red** (#C4341F): Primary CTA background, primary folio-badge/ink-mark color, link hover state. Text-safe against both `Lighter Print Stock` and white — used wherever red sits behind or as text.
-- **Riso Flame Red — Bright** (#FF4B33): Decorative-only. The hero's red ink blob and the photo hover/focus/active misregistration fringe. Never placed under text.
+- **Riso Flame Red — Bright** (#FF4B33): Decorative-only. The photo hover/focus/active misregistration fringe. Never placed under text.
 
 ### Secondary
 - **Riso Federal Blue** (#005A8F): Body link color, secondary/outline CTA, secondary folio-badge/ink-mark color, trust-strip background.
-- **Riso Federal Blue — Bright** (#0072B5): Decorative-only. The hero's blue ink blob and the photo hover/focus/active misregistration fringe.
+- **Riso Federal Blue — Bright** (#0072B5): Decorative-only. The photo hover/focus/active misregistration fringe.
 
 ### Neutral
 - **Warm Uncoated Paper** (#F3ECD9): Page background, always under the grain texture.
@@ -141,6 +141,9 @@ Square corners everywhere — no `border-radius` on buttons, cards, tables, phot
 - A hairline "+" registration mark sits at the top-left and bottom-right corners of every frame (drawn in CSS, not an image asset).
 - A subtle halftone-dot overlay (`mix-blend-mode: multiply`, ~12% opacity) sits over every photo, screening it into the print world without desaturating it.
 - A red/blue misregistration "ink fringe" (both colors' bright variants, `mix-blend-mode: multiply`) sits behind the frame at a low baseline opacity/offset (visible at rest, for touch users) and intensifies on hover, keyboard focus-within, and active/tap.
+
+### Hero Photo Card (signature component)
+The hero uses the same photo-frame primitive above, wrapped in a fixed-width card (`Lighter Print Stock` under grain, 2px ink border) rotated -2.5° with an italic caption below — a "tipped-in" physical print rather than a full-bleed hero image. Reserve this treatment for a single, specific supporting photo (not a rotating/generic hero image slot); it is not a click-to-enlarge affordance like the gallery frames, so its cursor stays default rather than zoom-in.
 
 ### Navigation
 - Sticky masthead, Lighter Print Stock background under grain, 3px solid ink bottom border.
