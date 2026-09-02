@@ -54,7 +54,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #F3ECD9;
@@ -118,8 +118,9 @@
   }
   nav.links a:hover { color: var(--red); border-bottom-color: var(--red); }
   .nav-toggle-btn {
-    display: none; background: none; border: 2px solid var(--ink); border-radius: 4px;
-    color: var(--ink); line-height: 1; padding: 8px 10px; cursor: pointer;
+    display: none; background: none; border: 2px solid var(--ink);
+    color: var(--ink); line-height: 1; width: 44px; height: 44px;
+    align-items: center; justify-content: center; cursor: pointer;
   }
   .nav-toggle-btn:hover { background: rgba(42,38,32,.08); }
   .nav-toggle-btn svg { display: block; width: 20px; height: 20px; }
@@ -142,7 +143,7 @@
   .hero { padding: 54px 0 46px; }
   .hero-row { display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
   .hero-photo-card {
-    width: 260px; flex-shrink: 0; background: var(--grain), var(--paper-2);
+    width: 260px; max-width: 100%; flex-shrink: 0; background: var(--grain), var(--paper-2);
     border: 2px solid var(--ink); padding: 10px 10px 16px; transform: rotate(-2.5deg);
   }
   .hero-photo-card .photo-tile { margin: 0; }
@@ -277,7 +278,7 @@
   .lightbox-btn {
     position: fixed; z-index: 2; background: rgba(243,236,217,.14); color: var(--paper-2);
     border: 1px solid rgba(243,236,217,.4); border-radius: 50%; width: 46px; height: 46px;
-    font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center;
+    line-height: 1; display: flex; align-items: center; justify-content: center;
     cursor: pointer;
   }
   .lightbox-btn:hover { background: var(--red-bright); border-color: var(--red-bright); }
@@ -287,7 +288,7 @@
   .lightbox-next { top: 50%; right: 20px; transform: translateY(-50%); }
   @media (max-width: 600px) {
     .lightbox-inner { padding: 90px 20px; }
-    .lightbox-btn { width: 40px; height: 40px; font-size: 17px; }
+    .lightbox-btn { width: 44px; height: 44px; }
   }
 
   /* members */
@@ -357,13 +358,16 @@
     .hero-photo-card { align-self: center; }
 
     .masthead .wrap { flex-wrap: wrap; }
-    .nav-toggle-btn { display: inline-block; }
+    .nav-toggle-btn { display: inline-flex; }
     nav.links { display: none; width: 100%; }
     nav.links.open { display: block; }
     nav.links ul { flex-direction: column; align-items: flex-start; gap: 14px; padding: 14px 0 4px; }
   }
   @media (max-width: 480px) {
     .gallery, .members { grid-template-columns: 1fr; }
+    table.programs tr, table.programs th, table.programs td { display: block; width: 100%; }
+    table.programs th { border-bottom: none; padding-bottom: 8px; }
+    table.programs td { padding-top: 0; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -372,7 +376,7 @@
 </head>
 <body>
 
-<div class="masthead">
+<header class="masthead">
   <div class="wrap">
     <a href="#top" class="wordmark">Generational<span>.</span>Club</a>
     <button type="button" class="nav-toggle-btn" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
@@ -390,7 +394,7 @@
       </ul>
     </nav>
   </div>
-</div>
+</header>
 
 <main id="top">
 
@@ -827,12 +831,15 @@
       captionEl.textContent = img.alt;
     }
 
+    var bgRegions = Array.prototype.slice.call(document.querySelectorAll('header.masthead, main, footer'));
+
     function openLightbox(index) {
       lastFocused = document.activeElement;
       show(index);
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      bgRegions.forEach(function (el) { el.setAttribute('inert', ''); el.setAttribute('aria-hidden', 'true'); });
       closeBtn.focus();
       document.addEventListener('keydown', onKeydown);
     }
@@ -841,6 +848,7 @@
       overlay.classList.remove('open');
       overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      bgRegions.forEach(function (el) { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); });
       document.removeEventListener('keydown', onKeydown);
       if (lastFocused) lastFocused.focus();
     }

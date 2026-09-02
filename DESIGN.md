@@ -4,6 +4,7 @@ description: A community craft club proven through its own two-ink print run —
 colors:
   riso-flame-red: "#C4341F"
   riso-flame-red-bright: "#FF4B33"
+  riso-flame-red-hover: "#A32A18"
   riso-federal-blue: "#005A8F"
   riso-federal-blue-bright: "#0072B5"
   warm-uncoated-paper: "#F3ECD9"
@@ -13,13 +14,71 @@ colors:
 typography:
   display:
     fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "clamp(32px, 4.6vw, 50px)"
     fontWeight: 700
     lineHeight: 1.1
+  headline:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "clamp(26px, 3vw, 32px)"
+    fontWeight: 700
+    lineHeight: 1.1
+  title-lg:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "23px"
+    fontWeight: 700
+    lineHeight: 1.1
+  title:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "19px"
+    fontWeight: 700
+    lineHeight: 1.1
+  title-sm:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "20px"
+    fontWeight: 700
+    lineHeight: 1.1
+  wordmark:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "clamp(20px, 3vw, 26px)"
+    fontWeight: 700
+  body-lead:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "19px"
+    fontWeight: 400
+    lineHeight: 1.6
   body:
     fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
     fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.6
+  body-sm:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "17px"
+    fontWeight: 400
+  body-md:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "16.5px"
+    fontWeight: 400
+  label:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "15.5px"
+    fontWeight: 600
+  label-btn:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "16px"
+    fontWeight: 700
+  label-sm:
+    fontFamily: "Zilla Slab, Georgia, serif"
+    fontSize: "15px"
+    fontWeight: 700
+  caption:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "14.5px"
+    fontWeight: 700
+  caption-sm:
+    fontFamily: "Public Sans, Arial, Helvetica, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
 rounded:
   none: "0px"
   circle: "50%"
@@ -69,6 +128,7 @@ Two spot inks plus a warm paper neutral family; both inks carry a text-safe (dar
 
 ### Primary
 - **Riso Flame Red** (#C4341F): Primary CTA background, primary folio-badge/ink-mark color, link hover state. Text-safe against both `Lighter Print Stock` and white — used wherever red sits behind or as text.
+- **Riso Flame Red — Hover** (#A32A18): The darkened hover/active state for the primary button only. Never used at rest.
 - **Riso Flame Red — Bright** (#FF4B33): Decorative-only. The photo hover/focus/active misregistration fringe. Never placed under text.
 
 ### Secondary
@@ -86,6 +146,8 @@ Two spot inks plus a warm paper neutral family; both inks carry a text-safe (dar
 
 **The Bright-Never-Under-Text Rule.** The `-bright` decorative variants exist only because they fail WCAG contrast as text/background pairs. They are used exclusively for shapes nothing is written on (ink blobs, hover fringes) — never as a button fill, link color, or text color.
 
+**The No-Dark-Mode Rule.** This system deliberately does not implement `prefers-color-scheme` dark mode. A printed riso zine has no "dark mode" — the single warm-paper palette is the material itself, not a light-theme default awaiting a dark counterpart. This was evaluated and confirmed during an accessibility audit, not overlooked; revisit only as an explicit, deliberate decision, never as a routine dark-mode add.
+
 ## Typography
 
 **Display Font:** Zilla Slab (with Georgia, serif fallback)
@@ -96,9 +158,21 @@ Two spot inks plus a warm paper neutral family; both inks carry a text-safe (dar
 ### Hierarchy
 - **Display** (700, `clamp(32px, 4.6vw, 50px)`, 1.1 line-height): Hero headline only.
 - **Headline** (700, `clamp(26px, 3vw, 32px)`, 1.1): Section headings (`h2`).
-- **Title** (700, 17–23px, 1.1): Card and component headings (`h3`), CTA-block heading.
-- **Body** (400, 18px, 1.6): Running copy; lead paragraphs run slightly larger at 19px. No line-length constraint is enforced by a max-width beyond the 980px page wrap.
-- **Label** (700, 14.5–15px, uppercase where used): Member role, footer column headings, gallery group-title chip.
+- **Title-lg** (700, 23px, 1.1): The Get-Involved CTA-block heading.
+- **Title** (700, 19px, 1.1): Card/component headings — member name, partner-box `h3`.
+- **Title-sm** (700, 20px, 1.1): Pillar `h3`, folio-badge numeral.
+- **Wordmark** (700, `clamp(20px, 3vw, 26px)`): Masthead and footer wordmark specifically (not reused elsewhere).
+- **Body-lead** (400, 19px, 1.6): Hero lead paragraph.
+- **Body** (400, 18px, 1.6): Running copy, section-head descriptions. No line-length constraint beyond the 980px page wrap.
+- **Body-sm** (400, 17px): Table cells, folio/CTA body copy, lightbox caption.
+- **Body-md** (400, 16.5px): Pillar body copy.
+- **Label** (600, 15.5px): Nav links, partner-box copy, footer base text.
+- **Label-btn** (700, 16px): Button and trust-strip text.
+- **Label-sm** (700, 15px, uppercase where used): Gallery-group-title chip, footer column headings, photo captions.
+- **Caption** (700, 14.5px, uppercase): Member role.
+- **Caption-sm** (400, 14px): Hero photo caption, footer copyright line.
+
+Every literal `font-size` in the shipped CSS maps to one of the roles above — this list is generated from the actual stylesheet, not aspirational.
 
 ### Named Rules
 **The No-Kicker Rule.** No heading is preceded by an eyebrow/kicker label. A prior build shipped one above the hero headline; it was removed and must not return regardless of how it's requested — fold the context into the heading or lead copy instead.
@@ -116,7 +190,7 @@ Flat. There is no `box-shadow` anywhere in the system. Every surface that needs 
 
 ## Shapes
 
-Square corners everywhere — no `border-radius` on buttons, cards, tables, photo frames, or the CTA block. The one exception is perfect circles (`border-radius: 50%`): the member avatar and the three partner badges. This binary (sharp rectangle vs. perfect circle, nothing in between) is deliberate and should not be softened with an intermediate radius.
+Square corners everywhere — no `border-radius` on buttons, cards, tables, photo frames, or the CTA block. The one exception is perfect circles (`border-radius: 50%`): the member avatar and the three partner badges. This binary (sharp rectangle vs. perfect circle, nothing in between) is deliberate and should not be softened with an intermediate radius. (An earlier build shipped a stray 4px radius on the mobile nav-toggle button, which contradicted this rule on inspection; it has been corrected to square.)
 
 ## Components
 

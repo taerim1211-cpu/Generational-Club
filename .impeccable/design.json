@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-01T00:00:00Z",
+  "generatedAt": "2026-09-02T00:00:00Z",
   "title": "Design System: Generational Club",
   "extensions": {
     "colorMeta": {
@@ -14,8 +14,21 @@
       "soft-ink-wash": { "role": "neutral-text-soft", "displayName": "Soft Ink Wash", "canonical": "#5C5648", "tonalRamp": ["#221F1A", "#38342B", "#4C473B", "#5C5648", "#7A7362", "#9C9481", "#C1BAA6", "#E6E1D1"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display / Headline", "purpose": "Hero headline and all h1/h2/h3 elements; Zilla Slab bold." },
-      "body": { "displayName": "Body", "purpose": "Running copy, captions, card text; Public Sans." }
+      "display": { "displayName": "Display", "purpose": "Hero headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2 headings." },
+      "title-lg": { "displayName": "Title Large", "purpose": "Get-Involved CTA-block heading." },
+      "title": { "displayName": "Title", "purpose": "Member name, partner-box h3." },
+      "title-sm": { "displayName": "Title Small", "purpose": "Pillar h3, folio-badge numeral." },
+      "wordmark": { "displayName": "Wordmark", "purpose": "Masthead and footer wordmark only." },
+      "body-lead": { "displayName": "Body Lead", "purpose": "Hero lead paragraph." },
+      "body": { "displayName": "Body", "purpose": "Running copy, section-head descriptions." },
+      "body-sm": { "displayName": "Body Small", "purpose": "Table cells, folio/CTA copy, lightbox caption." },
+      "body-md": { "displayName": "Body Medium", "purpose": "Pillar body copy." },
+      "label": { "displayName": "Label", "purpose": "Nav links, partner-box copy, footer base text." },
+      "label-btn": { "displayName": "Label Button", "purpose": "Button and trust-strip text." },
+      "label-sm": { "displayName": "Label Small", "purpose": "Gallery-group-title chip, footer headings, photo captions." },
+      "caption": { "displayName": "Caption", "purpose": "Member role (uppercase)." },
+      "caption-sm": { "displayName": "Caption Small", "purpose": "Hero photo caption, footer copyright line." }
     },
     "shadows": [],
     "motion": [
@@ -78,7 +91,7 @@
   ],
   "narrative": {
     "northStar": "The Two-Ink Print Run",
-    "overview": "The site presents itself as a small risograph-printed zine about a real, currently-running teen volunteer club, not a nonprofit-template landing page. Two spot inks — a flame red and a federal blue — carry every accent, CTA, and category marker in the system; they multiply into a darker third tone wherever they physically overlap (the hero's ink blobs), exactly as a real two-pass riso print would. A fine halftone-dot grain sits under every paper surface and over every photograph, so the site reads as printed material rather than rendered UI. The system is deliberately plain-spoken rather than precious: square corners, solid ink borders instead of shadows, and real craft-session photography doing the persuading rather than illustration or stock imagery.\n\nThe build explicitly rejects two adjacent failure modes: it is not the cream-background/rounded-card/stock-photo default that most \"volunteer nonprofit\" sites converge on, and it does not tip into a stylish \"indie design studio\" look that would read as more agency than teen club. Numbered sequence badges are reserved for the one genuinely ordered process on the site (the four-step join flow); parallel or categorical content never borrows that numbering, because a previous pass over-applied it and implied an order that didn't exist.",
+    "overview": "The site presents itself as a small risograph-printed zine about a real, currently-running teen volunteer club, not a nonprofit-template landing page. Two spot inks — a flame red and a federal blue — carry every accent, CTA, and category marker in the system, rendered with mix-blend-mode: multiply wherever they sit over paper or a photograph, exactly as a real two-pass riso print would. A fine halftone-dot grain sits under every paper surface and over every photograph, so the site reads as printed material rather than rendered UI. The system is deliberately plain-spoken rather than precious: square corners, solid ink borders instead of shadows, real photography (never illustration or stock imagery) presented as slightly-rotated, registration-marked \"tipped-in\" print cards where a single photo needs to carry a moment (the hero) and as bordered gallery tiles elsewhere.\n\nThe build explicitly rejects two adjacent failure modes: it is not the cream-background/rounded-card/stock-photo default that most \"volunteer nonprofit\" sites converge on, and it does not tip into a stylish \"indie design studio\" look that would read as more agency than teen club. Numbered sequence badges are reserved for the one genuinely ordered process on the site (the four-step join flow); parallel or categorical content never borrows that numbering, because a previous pass over-applied it and implied an order that didn't exist.",
     "keyCharacteristics": [
       "Two spot inks (red + blue) and nothing else; no third accent color anywhere.",
       "Flat, bordered surfaces — no box-shadow in the system; depth comes from a 2px solid ink border.",
@@ -90,7 +103,8 @@
       { "name": "The Two-Ink Rule", "body": "Only Riso Flame Red and Riso Federal Blue (and their bright decorative variants) carry color in this system. A third accent color is never introduced, even for a single new component.", "section": "colors" },
       { "name": "The Bright-Never-Under-Text Rule", "body": "The -bright decorative variants exist only because they fail WCAG contrast as text/background pairs. They are used exclusively for shapes nothing is written on (ink blobs, hover fringes) — never as a button fill, link color, or text color.", "section": "colors" },
       { "name": "The No-Kicker Rule", "body": "No heading is preceded by an eyebrow/kicker label. A prior build shipped one above the hero headline; it was removed and must not return regardless of how it's requested — fold the context into the heading or lead copy instead.", "section": "typography" },
-      { "name": "The Border-Not-Shadow Rule", "body": "Any new component that needs visual separation from its background gets a 2px solid Espresso Ink border. Never reach for box-shadow to create that separation — it isn't in this system's material vocabulary.", "section": "elevation" }
+      { "name": "The Border-Not-Shadow Rule", "body": "Any new component that needs visual separation from its background gets a 2px solid Espresso Ink border. Never reach for box-shadow to create that separation — it isn't in this system's material vocabulary.", "section": "elevation" },
+      { "name": "The No-Dark-Mode Rule", "body": "This system deliberately does not implement prefers-color-scheme dark mode. A printed riso zine has no \"dark mode\" — the single warm-paper palette is the material itself. Evaluated and confirmed during an accessibility audit, not overlooked; revisit only as an explicit decision.", "section": "colors" }
     ],
     "dos": [
       "Do apply the --grain halftone texture to every surface using the paper or print-stock neutral — never let a section fall back to a flat, ungrained color.",
