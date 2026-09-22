@@ -1,9 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://generationalclub.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image11.jpeg</image:loc>
+      <image:caption>Club members smiling together during a visit</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-12.jpeg</image:loc>
+      <image:caption>A resident and volunteer stringing a beaded bracelet together</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-13.jpeg</image:loc>
+      <image:caption>A volunteer restringing beads at the craft table</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-18.jpeg</image:loc>
+      <image:caption>Residents and volunteers painting fabric drawstring bags together</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image2.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with a rose design</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image3.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with roses and leaves</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image4.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with floral and heart designs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image5.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with a stenciled quote: 'In a field of roses, be a wildflower'</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image6.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with a lotus flower design</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image7.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with glitter flowers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image8.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with a glittered flower design</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image9.jpeg</image:loc>
+      <image:caption>Personalized drawstring bag reading 'Gloria' with a glitter heart</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image10.jpeg</image:loc>
+      <image:caption>Hand-painted drawstring bag with a leaf design</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image12.jpeg</image:loc>
+      <image:caption>Glitter floral canvas painting from a craft session</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image13.jpeg</image:loc>
+      <image:caption>Colorful pinwheel canvas painting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image14.jpeg</image:loc>
+      <image:caption>Canvas painting of a cottage surrounded by flowers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-0.jpeg</image:loc>
+      <image:caption>Collection of colorful handmade beaded bracelets</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-8.jpeg</image:loc>
+      <image:caption>Colorful pony-bead bracelets shaped into letters</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-9.jpeg</image:loc>
+      <image:caption>Long beaded necklace in red, yellow, green, and blue</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-10.jpeg</image:loc>
+      <image:caption>Beaded bracelet with a smiley-face wood bead</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-11.jpeg</image:loc>
+      <image:caption>Orange and white beaded bracelet</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-14.jpeg</image:loc>
+      <image:caption>Green, pink, purple, and yellow beaded bracelet</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image000.jpeg</image:loc>
+      <image:caption>Personalized memory collage made for a resident</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/image100.jpeg</image:loc>
+      <image:caption>Personalized memory collage with nature and travel images</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-3.jpeg</image:loc>
+      <image:caption>Magazine collage artwork with a bird, a castle, a beaded bracelet, and a Maryland flag</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-4.jpeg</image:loc>
+      <image:caption>Magazine collage titled "Light in the Darkness" with underwater ocean imagery</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-5.jpeg</image:loc>
+      <image:caption>Magazine collage of space and abstract imagery</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-6.jpeg</image:loc>
+      <image:caption>Magazine collage with a butterfly, flowers, and a puppy</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-7.jpeg</image:loc>
+      <image:caption>Bouquet of handmade pipe-cleaner flowers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-15.jpeg</image:loc>
+      <image:caption>Felt heart craft with a gingham bow reading "Happy Valentine's Day!"</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-16.jpeg</image:loc>
+      <image:caption>White felt heart craft decorated with ribbon and hearts</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-17.jpeg</image:loc>
+      <image:caption>Hand-decorated wooden holiday ornaments shaped like stars, angels, and snowflakes</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-1.jpeg</image:loc>
+      <image:caption>Poster board for a Generational Club bake sale fundraiser, with photos of past craft activities and a donation meter benefiting the Alzheimer's Association</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/craft-2.jpeg</image:loc>
+      <image:caption>Hand-drawn flyers advertising a Generational Club bake sale</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/HCaging.png</image:loc>
+      <image:caption>Howard County Department of Aging logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/62017_BGColumbia_0061_Exterior_Adj.jpg</image:loc>
+      <image:caption>Exterior of Brighton Gardens of Columbia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://generationalclub.com/photos/WGSenior.jpg</image:loc>
+      <image:caption>Winter Growth Assisted Living Center</image:caption>
+    </image:image>
   </url>
 </urlset>
