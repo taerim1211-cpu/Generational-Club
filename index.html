@@ -78,10 +78,23 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/public-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/zilla-slab-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face {
+    font-family: 'Zilla Slab';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/zilla-slab-700.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('fonts/public-sans-variable.woff2') format('woff2');
+  }
   :root {
     --paper: #F3ECD9;
     --paper-2: #FBF3E0;
