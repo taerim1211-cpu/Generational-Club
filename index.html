@@ -342,14 +342,29 @@
   .member-card .role { color: var(--blue); font-size: 14.5px; font-weight: 700; margin: 2px 0 0; text-transform: uppercase; letter-spacing: .04em; }
 
   /* partners */
-  .partners { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .partner-box { background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 34px 30px; text-align: center; }
+  .partners {
+    display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain; padding-bottom: 14px;
+    scrollbar-color: var(--ink) transparent;
+  }
+  .partner-box {
+    flex: 0 0 340px; scroll-snap-align: start;
+    background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 34px 30px; text-align: center;
+  }
   .partner-box h3 { font-size: 19px; }
   .partner-box p { color: var(--ink-soft); font-size: 15.5px; }
   .partner-box .badge {
     display: flex; width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
     border: 3px solid var(--ink); margin: 0 auto 18px;
   }
+  .partner-nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px; }
+  .partner-nav button {
+    width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--paper-2); color: var(--ink); border: 2px solid var(--ink); cursor: pointer;
+  }
+  .partner-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper-2); }
+  .partner-nav button:disabled { opacity: .35; cursor: default; }
+  .partner-nav svg { width: 20px; height: 20px; }
 
   /* four steps */
   .spread {
@@ -387,7 +402,8 @@
   }
 
   @media (max-width: 760px) {
-    .pillars, .foot-grid, .partners { grid-template-columns: 1fr; }
+    .pillars, .foot-grid { grid-template-columns: 1fr; }
+    .partner-box { flex-basis: 82%; }
     .gallery, .members { grid-template-columns: 1fr 1fr; }
     .spread { flex-direction: column; }
     .folio { border-right: none; border-bottom: 1px solid var(--border-strong); }
@@ -695,7 +711,7 @@
         <h2>Our Partners</h2>
         <p>We're grateful to work alongside local organizations who help make our visits possible.</p>
       </div>
-      <div class="partners">
+      <div class="partners" id="partnerTrack" role="region" aria-label="Partners (scroll sideways)" tabindex="0">
         <div class="partner-box">
           <img src="photos/HCaging.webp" width="617" height="324" alt="Howard County Department of Aging logo" loading="lazy" class="badge">
           <h3>Howard County Department of Aging</h3>
@@ -716,6 +732,14 @@
           <h3>Bethel Korean Presbyterian Church</h3>
           <p>A Korean-American church community whose seniors our Health &amp; Aging Committee visits for craft sessions, where language and culture shape how we connect.</p>
         </div>
+      </div>
+      <div class="partner-nav">
+        <button type="button" id="partnerPrev" aria-label="Previous partners" aria-controls="partnerTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button type="button" id="partnerNext" aria-label="Next partners" aria-controls="partnerTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -815,6 +839,33 @@
 </footer>
 
 <script>
+  (function () {
+    var track = document.getElementById('partnerTrack');
+    var prev = document.getElementById('partnerPrev');
+    var next = document.getElementById('partnerNext');
+    if (!track || !prev || !next) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function step() {
+      var card = track.querySelector('.partner-box');
+      return card ? card.getBoundingClientRect().width + 24 : track.clientWidth;
+    }
+    function update() {
+      var max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= max - 1;
+    }
+    function go(dir) {
+      track.scrollBy({ left: dir * step(), behavior: reduce.matches ? 'auto' : 'smooth' });
+    }
+
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
   (function () {
     var yearEl = document.getElementById('copyYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
