@@ -344,9 +344,9 @@
   /* partners */
   .partners {
     display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain; padding-bottom: 14px;
-    scrollbar-color: var(--ink) transparent;
+    overscroll-behavior-x: contain; scrollbar-width: none;
   }
+  .partners::-webkit-scrollbar { display: none; }
   .partner-box {
     flex: 0 0 340px; scroll-snap-align: start;
     background: var(--grain), var(--paper-2); border: 2px solid var(--ink); padding: 34px 30px; text-align: center;
@@ -357,13 +357,17 @@
     display: flex; width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
     border: 3px solid var(--ink); margin: 0 auto 18px;
   }
-  .partner-nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px; }
-  .partner-nav button {
+  .partner-carousel { position: relative; }
+  .partner-nav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 1;
     width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center;
-    background: var(--paper-2); color: var(--ink); border: 2px solid var(--ink); cursor: pointer;
+    background: var(--paper-2); color: var(--ink); border: 2px solid var(--ink); border-radius: 50%;
+    cursor: pointer; box-shadow: 0 2px 0 var(--ink);
   }
-  .partner-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper-2); }
-  .partner-nav button:disabled { opacity: .35; cursor: default; }
+  .partner-nav.prev { left: -23px; }
+  .partner-nav.next { right: -23px; }
+  .partner-nav:hover { background: var(--ink); color: var(--paper-2); }
+  .partner-nav:disabled { visibility: hidden; }
   .partner-nav svg { width: 20px; height: 20px; }
 
   /* four steps */
@@ -404,6 +408,9 @@
   @media (max-width: 760px) {
     .pillars, .foot-grid { grid-template-columns: 1fr; }
     .partner-box { flex-basis: 82%; }
+    .partner-nav { width: 40px; height: 40px; }
+    .partner-nav.prev { left: -16px; }
+    .partner-nav.next { right: -16px; }
     .gallery, .members { grid-template-columns: 1fr 1fr; }
     .spread { flex-direction: column; }
     .folio { border-right: none; border-bottom: 1px solid var(--border-strong); }
@@ -711,6 +718,7 @@
         <h2>Our Partners</h2>
         <p>We're grateful to work alongside local organizations who help make our visits possible.</p>
       </div>
+      <div class="partner-carousel">
       <div class="partners" id="partnerTrack" role="region" aria-label="Partners (scroll sideways)" tabindex="0">
         <div class="partner-box">
           <img src="photos/HCaging.webp" width="617" height="324" alt="Howard County Department of Aging logo" loading="lazy" class="badge">
@@ -733,11 +741,10 @@
           <p>A Korean-American church community whose seniors our Health &amp; Aging Committee visits for craft sessions, where language and culture shape how we connect.</p>
         </div>
       </div>
-      <div class="partner-nav">
-        <button type="button" id="partnerPrev" aria-label="Previous partners" aria-controls="partnerTrack">
+        <button type="button" class="partner-nav prev" id="partnerPrev" aria-label="Previous partners" aria-controls="partnerTrack">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
         </button>
-        <button type="button" id="partnerNext" aria-label="Next partners" aria-controls="partnerTrack">
+        <button type="button" class="partner-nav next" id="partnerNext" aria-label="Next partners" aria-controls="partnerTrack">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
         </button>
       </div>
